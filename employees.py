@@ -1,4 +1,5 @@
 from logger import logging
+
 EMPLOYEES_LIST = {}  # текущие заключенные
 
 
@@ -7,3 +8,12 @@ EMPLOYEES_LIST = {}  # текущие заключенные
 
 def print_employees():
     print("Вывод всех работников в консоль")
+
+#
+# import json
+# def load_from_file():
+#     with open('data.json') as file:
+#         data = json.load(file)
+#
+#     print("load complite")
+#     return data
