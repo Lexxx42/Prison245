@@ -398,5 +398,5 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml!/my_log.log
 *.log
-!/employees.txt
-!/prisoners.txt
+employees.txt
+prisoners.txt
