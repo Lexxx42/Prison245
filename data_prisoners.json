@@ -1,0 +1,34 @@
+{
+  "prisoners": [
+    {
+      "id": "1",
+      "name": "Marya",
+      "second_name": "Andreeva",
+      "area": {
+        "id": "90",
+        "name": "Block A"
+      },
+      "status": "in jail"
+    },
+    {
+      "id": "2",
+      "name": "emp1",
+      "second_name": "emp1_sec",
+      "area": {
+        "id": "23",
+        "name": "Block A"
+      },
+      "status": "in jail"
+    },
+    {
+      "id": "23",
+      "name": "emp33",
+      "second_name": "emp33_sec",
+      "area": {
+        "id": "123",
+        "name": "Block B"
+      },
+      "status": "free"
+    }
+  ]
+}

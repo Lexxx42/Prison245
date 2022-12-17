@@ -1,0 +1,58 @@
+{
+  "employees": [
+    {
+      "id": "73894058",
+      "name": "Vasiliy",
+      "salary": {
+        "amount": 20000,
+        "currency": "RUR"
+      },
+      "type": "guard",
+      "address": {
+        "city": "Moscow",
+        "street": "st. Main",
+        "building": "23"
+      },
+      "contacts": {
+        "home_phone": "123123",
+        "mobile_personal": "+7902123123"
+      }
+    },
+    {
+      "id": "123",
+      "name": "Stepan",
+      "salary": {
+        "amount": 20000,
+        "currency": "RUR"
+      },
+      "type": "cook",
+      "address": {
+        "city": "Moscow",
+        "street": "st. Main",
+        "building": "23"
+      },
+      "contacts": {
+        "home_phone": "123123",
+        "mobile_personal": "+7902123123"
+      }
+    },
+    {
+      "id": "123",
+      "name": "Stepan",
+      "salary": {
+        "amount": 20000,
+        "currency": "RUR"
+      },
+      "type": "doctor",
+      "address": {
+        "city": "Moscow",
+        "street": "st. Main",
+        "building": "23"
+      },
+      "contacts": {
+        "home_phone": "123123",
+        "mobile_personal": "+7902123123"
+      }
+    }
+  ]
+}
