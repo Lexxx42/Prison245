@@ -8,26 +8,29 @@
         "id": "90",
         "name": "Block A"
       },
+      "reason": "Жестокое обращение с функциями",
       "status": "in jail"
     },
     {
       "id": "2",
-      "name": "emp1",
-      "second_name": "emp1_sec",
+      "name": "Sergey",
+      "second_name": "Kamyanetsky",
       "area": {
         "id": "23",
         "name": "Block A"
       },
+      "reason": "За острый ум",
       "status": "in jail"
     },
     {
       "id": "23",
-      "name": "emp33",
-      "second_name": "emp33_sec",
+      "name": "Ilnar",
+      "second_name": "Shaphigulin",
       "area": {
         "id": "123",
         "name": "Block B"
       },
+      "reason": "За длинные интервью",
       "status": "free"
     }
   ]

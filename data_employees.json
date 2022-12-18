@@ -4,7 +4,7 @@
       "id": "73894058",
       "name": "Vasiliy",
       "salary": {
-        "amount": 20000,
+        "amount": 22000,
         "currency": "RUR"
       },
       "type": "guard",
@@ -14,44 +14,44 @@
         "building": "23"
       },
       "contacts": {
-        "home_phone": "123123",
-        "mobile_personal": "+7902123123"
+        "home_phone": "22",
+        "mobile_personal": "+7904433123"
       }
     },
     {
       "id": "123",
-      "name": "Stepan",
+      "name": "Veronika",
       "salary": {
-        "amount": 20000,
-        "currency": "RUR"
+        "amount": 30000,
+        "currency": "EUR"
       },
       "type": "cook",
       "address": {
-        "city": "Moscow",
-        "street": "st. Main",
-        "building": "23"
+        "city": "Novosibirsk",
+        "street": "Mira",
+        "building": "09"
       },
       "contacts": {
-        "home_phone": "123123",
-        "mobile_personal": "+7902123123"
+        "home_phone": "43123",
+        "mobile_personal": "+7985123123"
       }
     },
     {
-      "id": "123",
-      "name": "Stepan",
+      "id": "10003",
+      "name": "Maxim",
       "salary": {
-        "amount": 20000,
-        "currency": "RUR"
+        "amount": 210000,
+        "currency": "USD"
       },
       "type": "doctor",
       "address": {
-        "city": "Moscow",
-        "street": "st. Main",
-        "building": "23"
+        "city": "Tomsk",
+        "street": "Lenina",
+        "building": "1"
       },
       "contacts": {
-        "home_phone": "123123",
-        "mobile_personal": "+7902123123"
+        "home_phone": "1023",
+        "mobile_personal": "+790212523"
       }
     }
   ]
