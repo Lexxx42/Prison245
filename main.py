@@ -13,6 +13,7 @@ def main():
     print(operation_type, operation_code)
     options(operation_type, operation_code)
     logging.info('Session finish')
+    main()
 
 
 def options(type_opt, option):
@@ -25,7 +26,6 @@ def options(type_opt, option):
             operations(type_opt, option)
         case _:
             print('Something went really wrong!')
-            result = 'Empty'
             logging.info('Something went really wrong!')
 
 
