@@ -5,7 +5,7 @@ MUST_BE_INTEGER = 'Incorrect input! Input must be an integer.'
 MUST_BE_POSITIVE = 'Must be positive.'
 MUST_BE_STRING = 'Incorrect input! Input must be a string.'
 MUST_BE_GREATER_THAN_ZERO = 'Incorrect input! Input must be greater than zero.'
-MUST_BE_VALID = 'Enter valid change mode.'
+MUST_BE_VALID = 'Enter valid value.'
 
 
 def validation_mode() -> int:
@@ -233,3 +233,20 @@ def validation_change_prisoner() -> int:
         #             current_area_name = get_current_area_name()
         #             new_area_cell = validation_area_cell(current_area_name)
         #             return new_area_cell
+
+
+def validation_id_for_edit(available_ids):
+    """ Function for changing prisoner's data. """
+    available_ids = list(map(int, available_ids))
+    id_for_check = ''
+    while True:
+        try:
+            id_for_check = int(input("Enter id for check: "))
+        except ValueError:
+            print(MUST_BE_INTEGER)
+            logging.exception(MUST_BE_INTEGER)
+        if id_for_check not in available_ids:
+            print(MUST_BE_VALID)
+            logging.exception(MUST_BE_VALID)
+            continue
+        return id_for_check

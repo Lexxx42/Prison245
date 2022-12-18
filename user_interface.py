@@ -113,8 +113,11 @@ def change_prisoner():
     change_mode = validation_change_prisoner()
     print_list_of_prisoners()
     if change_mode == 1:
-        print_list_of_prisoners_id_for_change()
-        new_area_name = validation_area_name()
+        p_list_ids = get_list_of_prisoners_id_for_change()
+        choose_id_for_edit(p_list_ids)
+        id_for_edit = validation_id_for_edit(p_list_ids)
+        print("id_for_edit", id_for_edit)
+        # new_area_name = validation_area_name()
     elif change_mode == 2:
         area_cell = validation_area_cell(area_name)
 
@@ -133,11 +136,16 @@ def print_list_of_employees():
     print()
 
 
-def print_list_of_prisoners_id_for_change():
+def get_list_of_prisoners_id_for_change() -> list:
     available_id_for_edit = []
     for i in PRISONERS_LIST.get("prisoners"):
         available_id_for_edit.append(i.get("id"))
-    print(available_id_for_edit)
+    return available_id_for_edit
+
+
+def choose_id_for_edit(list_for_check) -> str:
+    print(f'Available ids for change: {", ".join(list_for_check)}')
+
 
 def change_employee():
     print('change_employee')
