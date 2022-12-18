@@ -5,6 +5,7 @@ MUST_BE_INTEGER = 'Incorrect input! Input must be an integer.'
 MUST_BE_POSITIVE = 'Must be positive.'
 MUST_BE_STRING = 'Incorrect input! Input must be a string.'
 MUST_BE_GREATER_THAN_ZERO = 'Incorrect input! Input must be greater than zero.'
+MUST_BE_VALID = 'Enter valid change mode.'
 
 
 def validation_mode() -> int:
@@ -207,3 +208,28 @@ def validation_mobile_personal() -> str:
             logging.exception(MUST_BE_POSITIVE)
             continue
         return str(mobile_personal)
+
+
+def validation_change_prisoner() -> int:
+    """ Function for changing prisoner's data. """
+    change_type = 0
+    while True:
+        try:
+            change_type = int(input("Enter change mode for prisoner: "))
+        except ValueError:
+            print(MUST_BE_INTEGER)
+            logging.exception(MUST_BE_INTEGER)
+        if change_type not in range(1, 3):
+            print(MUST_BE_VALID)
+            logging.exception(MUST_BE_VALID)
+        return change_type
+
+        # else:
+        #     match change_type:
+        #         case 1:
+        #             new_area_name = validation_area_name()
+        #             return new_area_name
+        #         case 2:
+        #             current_area_name = get_current_area_name()
+        #             new_area_cell = validation_area_cell(current_area_name)
+        #             return new_area_cell

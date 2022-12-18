@@ -16,6 +16,8 @@ def set_prisoner_id():
     return max_id + 1
 
 
+# def get_current_area_name()
+
 def load_from_file():
     with open('data_prisoners.json', encoding='utf-8') as file:
         data = json.load(file)

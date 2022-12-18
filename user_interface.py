@@ -76,6 +76,7 @@ def add_new_prisoner_ui(type_of_operation):
     area_cell = validation_area_cell(area_name)
     reason = validation_reason()
     prisoner_status = "in jail"
+    print(prisoner_id, prisoner_name, prisoner_second_name, area_name, area_cell, reason, prisoner_status)
 
 
 def add_new_employee_ui(type_of_operation):
@@ -84,7 +85,7 @@ def add_new_employee_ui(type_of_operation):
     employee_name = validation_name(type_of_operation)
     employee_second_name = validation_surname(type_of_operation)
     employee_salary_amount = validation_salary_amount()
-    currency = "RUR"
+    employee_salary_currency = "RUR"
     print("""Available employee positions:
 1 - guard
 2 - cook
@@ -99,11 +100,44 @@ def add_new_employee_ui(type_of_operation):
     employee_contacts_home_phone = validation_home_phone()
     employee_contacts_mobile_personal = validation_mobile_personal()
     employee_status = "working"
+    print(employee_id, employee_name, employee_second_name, employee_salary_amount, '\n',
+          employee_salary_currency, employee_type, employee_address_city, employee_address_street, '\n',
+          employee_address_building, employee_contacts_home_phone, employee_contacts_mobile_personal, employee_status)
 
 
 def change_prisoner():
-    print('change_prisoner')
+    print("""Which field do you want to edit?
+1 - area name
+2 - area_cell
+""")
+    change_mode = validation_change_prisoner()
+    print_list_of_prisoners()
+    if change_mode == 1:
+        print_list_of_prisoners_id_for_change()
+        new_area_name = validation_area_name()
+    elif change_mode == 2:
+        area_cell = validation_area_cell(area_name)
 
+
+def print_list_of_prisoners():
+    print("prisoners list")
+    for i in PRISONERS_LIST.get("prisoners"):
+        print(i)
+    print()
+
+
+def print_list_of_employees():
+    print("employees list")
+    for i in EMPLOYEES_LIST.get("employees"):
+        print(i)
+    print()
+
+
+def print_list_of_prisoners_id_for_change():
+    available_id_for_edit = []
+    for i in PRISONERS_LIST.get("prisoners"):
+        available_id_for_edit.append(i.get("id"))
+    print(available_id_for_edit)
 
 def change_employee():
     print('change_employee')

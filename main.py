@@ -13,8 +13,8 @@ def main():
     print(operation_type, operation_code)
     options(operation_type, operation_code)
     logging.info('Session finish')
-    if operation_type != 0:
-        main()
+    #if operation_type != 0:
+        #main()
 
 
 def options(type_opt, option):
@@ -45,8 +45,8 @@ def operations(t_opt, opt):
             print('Освобождение заключенного из тюрьмы')
             free_prisoner_ui()
         case 1, 5:
-            print('Изменение данных заключенного')
             change_prisoner()
+            print('Изменение данных заключенного')
         case 2, 1:
             print_employees()
             print('Печать в консоль списка работников')
