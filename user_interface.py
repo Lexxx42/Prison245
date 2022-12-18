@@ -92,10 +92,13 @@ def add_new_employee_ui(type_of_operation):
 4 - janitor
 5 - aligator feeder
 """)
-    area_name = validation_area_name()
-    area_cell = validation_area_cell(area_name)
-    reason = validation_reason()
-    prisoner_status = "in jail"
+    employee_type = validation_employee_type()
+    employee_address_city = validation_location('city')
+    employee_address_street = validation_location('street')
+    employee_address_building = validation_location('building')
+    employee_contacts_home_phone = validation_home_phone()
+    employee_contacts_mobile_personal = validation_mobile_personal()
+    employee_status = "working"
 
 
 def change_prisoner():

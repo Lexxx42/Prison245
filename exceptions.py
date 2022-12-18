@@ -2,7 +2,7 @@
 from logger import logging
 
 MUST_BE_INTEGER = 'Incorrect input! Input must be an integer.'
-MUST_BE_A_REAL = 'Incorrect input! Input must be a real number.'
+MUST_BE_POSITIVE = 'Must be positive.'
 MUST_BE_STRING = 'Incorrect input! Input must be a string.'
 MUST_BE_GREATER_THAN_ZERO = 'Incorrect input! Input must be greater than zero.'
 
@@ -138,3 +138,72 @@ def validation_salary_amount() -> int:
             print("We can't afford this much!")
             logging.exception("We can't afford this much!")
         return salary_amount
+
+
+def validation_employee_type() -> str:
+    """ Function for check input for employee's type. """
+    employee_type = ''
+    while True:
+        try:
+            employee_type = int(input("Enter employee's job: "))
+        except ValueError:
+            print(MUST_BE_INTEGER)
+            logging.exception(MUST_BE_INTEGER)
+        if employee_type not in range(1, 6):
+            print("Vacancy must be available!")
+            logging.exception("Vacancy must be available!")
+        else:
+            match employee_type:
+                case 1:
+                    return 'guard'
+                case 2:
+                    return 'cook'
+                case 3:
+                    return 'doctor'
+                case 4:
+                    return 'janitor'
+                case 5:
+                    return 'aligator feeder'
+
+
+def validation_location(location) -> str:
+    """ Function for check input for employee's location. """
+    check_location = ''
+    try:
+        check_location = input(f"Enter employee's {location}: ")
+    except ValueError:
+        print(MUST_BE_STRING)
+        logging.exception(MUST_BE_STRING)
+    return check_location
+
+
+def validation_home_phone() -> str:
+    """ Function for check input for employee's home_phone. """
+    home_phone = ''
+    while True:
+        try:
+            home_phone = int(input("Enter employee's home phone: "))
+        except ValueError:
+            print(MUST_BE_INTEGER)
+            logging.exception(MUST_BE_INTEGER)
+        if home_phone < 0:
+            print(MUST_BE_POSITIVE)
+            logging.exception(MUST_BE_POSITIVE)
+            continue
+        return str(home_phone)
+
+
+def validation_mobile_personal() -> str:
+    """ Function for check input for employee's mobile_personal. """
+    mobile_personal = ''
+    while True:
+        try:
+            mobile_personal = int(input("Enter employee's home phone: "))
+        except ValueError:
+            print(MUST_BE_INTEGER)
+            logging.exception(MUST_BE_INTEGER)
+        if mobile_personal < 0:
+            print(MUST_BE_POSITIVE)
+            logging.exception(MUST_BE_POSITIVE)
+            continue
+        return str(mobile_personal)
