@@ -104,3 +104,14 @@ def validation_area_name() -> str:
             if area_name == 1:
                 return 'A'
             return 'B'
+
+
+def validation_reason() -> str:
+    """ Function for check input for prisoner's imprisonment reason. """
+    p_reason = ''
+    try:
+        p_reason = input("Enter imprisonment reason: ")
+    except ValueError:
+        print(MUST_BE_STRING)
+        logging.exception(MUST_BE_STRING)
+    return p_reason
