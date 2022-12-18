@@ -1,18 +1,15 @@
 from logger import logging
+import json
 
-PRISONERS_LIST = {}  # текущие заключенные
-
-
-# ключи - id_заключенного
-# значения из README.md
 
 def print_prisoners():
-    print("Вывод всех заключенных в консоль")
+    print(PRISONERS_LIST)
 
-# import json
-# def load_from_file():
-#     with open('data.json') as file:
-#         data = json.load(file)
-#
-#     print("load complite")
-#     return data
+
+def load_from_file():
+    with open('data_prisoners.json', encoding='utf-8') as file:
+        data = json.load(file)
+    return data
+
+
+PRISONERS_LIST = load_from_file()  # текущие заключенные

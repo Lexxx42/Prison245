@@ -1,19 +1,18 @@
 from logger import logging
-
-EMPLOYEES_LIST = {}  # текущие работники
+import json
 
 
 # ключи - id_работника
 # значения из README.md
 
 def print_employees():
-    print("Вывод всех работников в консоль")
+    print(EMPLOYEES_LIST)
 
-#
-# import json
-# def load_from_file():
-#     with open('data.json') as file:
-#         data = json.load(file)
-#
-#     print("load complite")
-#     return data
+
+def load_from_file():
+    with open('data_employees.json', encoding='utf-8') as file:
+        data = json.load(file)
+    return data
+
+
+EMPLOYEES_LIST = load_from_file()  # текущие работники
