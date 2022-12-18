@@ -3,7 +3,6 @@ from logger import logging
 
 MUST_BE_INTEGER = 'Incorrect input! Input must be an integer.'
 MUST_BE_A_REAL = 'Incorrect input! Input must be a real number.'
-DIVISION_BY_ZERO = "Division by zero!"
 
 
 def validation_mode() -> int:
