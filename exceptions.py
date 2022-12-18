@@ -198,7 +198,7 @@ def validation_mobile_personal() -> str:
     mobile_personal = ''
     while True:
         try:
-            mobile_personal = int(input("Enter employee's home phone: "))
+            mobile_personal = int(input("Enter employee's mobile personal phone: "))
         except ValueError:
             print(MUST_BE_INTEGER)
             logging.exception(MUST_BE_INTEGER)
