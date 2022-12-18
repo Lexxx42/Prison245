@@ -15,7 +15,7 @@
       },
       "contacts": {
         "home_phone": "22",
-        "mobile_personal": "+7904433123"
+        "mobile_personal": "86901232318"
       },
       "status": "working"
     },
@@ -24,7 +24,7 @@
       "name": "Veronika",
       "salary": {
         "amount": 30000,
-        "currency": "EUR"
+        "currency": "RUR"
       },
       "type": "cook",
       "address": {
@@ -34,7 +34,7 @@
       },
       "contacts": {
         "home_phone": "43123",
-        "mobile_personal": "+7985123123"
+        "mobile_personal": "86911232318"
       },
       "status": "fired"
     },
@@ -43,7 +43,7 @@
       "name": "Maxim",
       "salary": {
         "amount": 210000,
-        "currency": "USD"
+        "currency": "RUR"
       },
       "type": "doctor",
       "address": {
@@ -53,7 +53,7 @@
       },
       "contacts": {
         "home_phone": "1023",
-        "mobile_personal": "+790212523"
+        "mobile_personal": "86911232311"
       },
       "status": "working"
     }

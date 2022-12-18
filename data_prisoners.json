@@ -5,7 +5,7 @@
       "name": "Marya",
       "second_name": "Andreeva",
       "area": {
-        "id": "90",
+        "cell": "90",
         "name": "Block A"
       },
       "reason": "Жестокое обращение с функциями",
@@ -16,7 +16,7 @@
       "name": "Sergey",
       "second_name": "Kamyanetsky",
       "area": {
-        "id": "23",
+        "cell": "23",
         "name": "Block A"
       },
       "reason": "За острый ум",
@@ -27,7 +27,7 @@
       "name": "Ilnar",
       "second_name": "Shaphigulin",
       "area": {
-        "id": "123",
+        "cell": "123",
         "name": "Block B"
       },
       "reason": "За длинные интервью",
