@@ -3,7 +3,7 @@ import sys
 from exceptions import *
 from logger import logging
 from prisoners import PRISONERS_LIST, set_prisoner_id
-from employees import EMPLOYEES_LIST
+from employees import EMPLOYEES_LIST, set_employee_id
 
 
 def main_menu() -> None | tuple[int, int]:
@@ -64,10 +64,10 @@ def fire_an_employee_ui():
     # проверка значений
 
 
-def add_new_prisoner_ui():
+def add_new_prisoner_ui(type_of_operation):
     prisoner_id = set_prisoner_id()
-    prisoner_name = validation_prisoner_name()
-    prisoner_second_name = validation_prisoner_surname()
+    prisoner_name = validation_name(type_of_operation)
+    prisoner_second_name = validation_surname(type_of_operation)
     print("""Available blocks in prison:
 1 - Block A
 2 - Block B
@@ -78,8 +78,24 @@ def add_new_prisoner_ui():
     prisoner_status = "in jail"
 
 
-def add_new_employee_ui():
-    print('add_new_employee_ui')
+def add_new_employee_ui(type_of_operation):
+    employee_id = set_employee_id()
+    print(type_of_operation)
+    employee_name = validation_name(type_of_operation)
+    employee_second_name = validation_surname(type_of_operation)
+    employee_salary_amount = validation_salary_amount()
+    currency = "RUR"
+    print("""Available employee positions:
+1 - guard
+2 - cook
+3 - doctor
+4 - janitor
+5 - aligator feeder
+""")
+    area_name = validation_area_name()
+    area_cell = validation_area_cell(area_name)
+    reason = validation_reason()
+    prisoner_status = "in jail"
 
 
 def change_prisoner():

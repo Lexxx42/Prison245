@@ -13,7 +13,8 @@ def main():
     print(operation_type, operation_code)
     options(operation_type, operation_code)
     logging.info('Session finish')
-    main()
+    if operation_type != 0:
+        main()
 
 
 def options(type_opt, option):
@@ -38,7 +39,7 @@ def operations(t_opt, opt):
             print('Печать в файл списка текущих заключенных')
             write_file_prisoners()
         case 1, 3:
-            add_new_prisoner_ui()
+            add_new_prisoner_ui(t_opt)
             print('Добавление нового заключенного в тюрьму')
         case 1, 4:
             print('Освобождение заключенного из тюрьмы')
@@ -53,8 +54,8 @@ def operations(t_opt, opt):
             print('Печать в файл списка текущих работников')
             write_file_employees()
         case 2, 3:
+            add_new_employee_ui(t_opt)
             print('Добавление нового работника')
-            add_new_employee_ui()
         case 2, 4:
             print('Увольнение работника')
             fire_an_employee_ui()

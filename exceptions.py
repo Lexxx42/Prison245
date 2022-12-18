@@ -43,26 +43,32 @@ def validation_operation() -> int:
         logging.exception("Incorrect input! Please look at the available operation codes.")
 
 
-def validation_prisoner_name() -> str:
+def validation_name(type_op) -> str:
     """ Function for check input for prisoner's name. """
-    p_name = ''
+    name = ''
     try:
-        p_name = input("Enter prisoner's name: ")
+        if type_op == 1:
+            name = input("Enter prisoner's name: ")
+        else:
+            name = input("Enter employee's name: ")
     except ValueError:
         print(MUST_BE_STRING)
         logging.exception(MUST_BE_STRING)
-    return p_name
+    return name
 
 
-def validation_prisoner_surname() -> str:
+def validation_surname(type_op) -> str:
     """ Function for check input for prisoner's surname. """
-    p_surname = ''
+    surname = ''
     try:
-        p_surname = input("Enter prisoner's surname: ")
+        if type_op == 1:
+            surname = input("Enter prisoner's surname: ")
+        else:
+            surname = input("Enter employee's surname: ")
     except ValueError:
         print(MUST_BE_STRING)
         logging.exception(MUST_BE_STRING)
-    return p_surname
+    return surname
 
 
 def validation_area_cell(block_name) -> str:
@@ -85,6 +91,7 @@ def validation_area_cell(block_name) -> str:
         if block_name == 'B' and area_cell < cells[0] or area_cell > cells[1]:
             print(f"Block B have cell number from {cells[0]} to {cells[1]}")
             continue
+        logging.info(f'selected block={block_name}, cell={area_cell}')
         return str(area_cell)
 
 
@@ -115,3 +122,19 @@ def validation_reason() -> str:
         print(MUST_BE_STRING)
         logging.exception(MUST_BE_STRING)
     return p_reason
+
+
+def validation_salary_amount() -> int:
+    """ Function for check input for prisoner's imprisonment reason. """
+    salary_amount = 0
+    max_salary_amount = 200000
+    while True:
+        try:
+            salary_amount = int(input("How much does employee costs: "))
+        except ValueError:
+            print(MUST_BE_INTEGER)
+            logging.exception(MUST_BE_INTEGER)
+        if salary_amount > max_salary_amount:
+            print("We can't afford this much!")
+            logging.exception("We can't afford this much!")
+        return salary_amount
