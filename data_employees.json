@@ -16,7 +16,8 @@
       "contacts": {
         "home_phone": "22",
         "mobile_personal": "+7904433123"
-      }
+      },
+      "status": "working"
     },
     {
       "id": "123",
@@ -34,7 +35,8 @@
       "contacts": {
         "home_phone": "43123",
         "mobile_personal": "+7985123123"
-      }
+      },
+      "status": "fired"
     },
     {
       "id": "10003",
@@ -52,7 +54,8 @@
       "contacts": {
         "home_phone": "1023",
         "mobile_personal": "+790212523"
-      }
+      },
+      "status": "working"
     }
   ]
 }
