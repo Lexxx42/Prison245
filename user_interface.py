@@ -65,7 +65,14 @@ def fire_an_employee_ui():
 
 
 def add_new_prisoner_ui():
-    print('add_new_prisoner_ui')
+    prisoner_name = validation_prisoner_name()
+    prisoner_second_name = validation_prisoner_surname()
+    print("""Available blocks in prison:
+1 - Block A
+2 - Block B
+""")
+    area_name = validation_area_name()
+    area_cell = validation_area_cell(area_name)
 
 
 def add_new_employee_ui():
