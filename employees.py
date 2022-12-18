@@ -1,6 +1,6 @@
 from logger import logging
 
-EMPLOYEES_LIST = {}  # текущие заключенные
+EMPLOYEES_LIST = {}  # текущие работники
 
 
 # ключи - id_работника
