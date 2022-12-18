@@ -38,8 +38,8 @@ def operations(t_opt, opt):
             print('Печать в файл списка текущих заключенных')
             write_file_prisoners()
         case 1, 3:
-            print('Добавление нового заключенного в тюрьму')
             add_new_prisoner_ui()
+            print('Добавление нового заключенного в тюрьму')
         case 1, 4:
             print('Освобождение заключенного из тюрьмы')
             free_prisoner_ui()
