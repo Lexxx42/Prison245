@@ -2,7 +2,7 @@ from user_interface import main_menu, free_prisoner_ui, fire_an_employee_ui, add
     change_prisoner, change_employee
 from logger import logging
 from prisoners import print_prisoners, change_prisoner_data, add_new_prisoner
-from employees import print_employees
+from employees import print_employees, add_new_employee
 from w_r_file import write_file_prisoners
 from w_r_file import write_file_employees
 
@@ -56,7 +56,8 @@ def operations(t_opt, opt):
             print('Печать в файл списка текущих работников')
             write_file_employees()
         case 2, 3:
-            add_new_employee_ui(t_opt)
+            new_employee_info = add_new_employee_ui(t_opt)
+            add_new_employee(new_employee_info)
             print('Добавление нового работника')
         case 2, 4:
             print('Увольнение работника')

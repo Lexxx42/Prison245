@@ -53,4 +53,21 @@ def employee_update(emp_id, type_of_upd, new_value):
                 print('new list', EMPLOYEES_LIST)
 
 
+def add_new_employee(tuple_employee_info):
+    new_employee = {}
+    new_employee["id"] = tuple_employee_info[0]
+    new_employee["name"] = tuple_employee_info[1]
+    new_employee["second_name"] = tuple_employee_info[2]
+    new_employee["salary"] = {
+        "amount": tuple_employee_info[3], "currency": tuple_employee_info[4]}
+    new_employee["type"] = tuple_employee_info[5]
+    new_employee["address"] = {
+        "city": tuple_employee_info[6], "street": tuple_employee_info[7], "building": tuple_employee_info[8]}
+    new_employee["contacts"] = {
+        "home_phone": tuple_employee_info[9], "mobile_personal": tuple_employee_info[10]}
+    new_employee["status"] = tuple_employee_info[11]
+    EMPLOYEES_LIST.get("employees").append(new_employee)
+    print(EMPLOYEES_LIST)
+
+
 EMPLOYEES_LIST = load_from_file()  # текущие работники
