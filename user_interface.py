@@ -2,7 +2,7 @@
 import sys
 from exceptions import *
 from logger import logging
-from prisoners import PRISONERS_LIST, set_prisoner_id, get_current_prisoner_block
+from prisoners import PRISONERS_LIST, set_prisoner_id, get_current_prisoner_block, free_prisoner
 from employees import EMPLOYEES_LIST, set_employee_id
 
 
@@ -56,6 +56,9 @@ def free_prisoner_ui():
     print("Which prisoner do you want to free? ")
     # цикл вывода заключенных из PRISONERS_LIST
     # проверка значений
+    available_prisoners = choose_id_for_edit()
+    id_for_free = validation_id_for_edit(available_prisoners)
+    free_prisoner(id_for_free)
 
 
 def fire_an_employee_ui():
@@ -156,7 +159,7 @@ def choose_id_for_edit() -> str:
     for i in PRISONERS_LIST.get("prisoners"):
         if i.get("status") == 'in jail':
             list_for_check.append(i.get("id"))
-    print(f'Available ids for change: {", ".join(list_for_check)}')
+    print(f'Available ids: {", ".join(list_for_check)}')
     return list_for_check
 
 

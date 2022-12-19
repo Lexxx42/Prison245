@@ -2,6 +2,7 @@ from logger import logging
 import json
 from random import randint
 
+
 def print_prisoners():
     print(PRISONERS_LIST)
 
@@ -40,10 +41,10 @@ def change_prisoner_data(id_prisoner, data_for_change):
             if int(i.get("id")) == id_prisoner:
                 area = i.get("area")
                 area['name'] = data_for_change
-                if data_for_change=='A':
-                    area['cell']=str(randint(1, 100))
+                if data_for_change == 'A':
+                    area['cell'] = str(randint(1, 100))
                 else:
-                    area['cell']=str(randint(101, 200))
+                    area['cell'] = str(randint(101, 200))
                 print('new list', PRISONERS_LIST)
     else:
         print('number')
@@ -52,6 +53,13 @@ def change_prisoner_data(id_prisoner, data_for_change):
                 area = i.get("area")
                 area['cell'] = data_for_change
                 print('new list', PRISONERS_LIST)
+
+
+def free_prisoner(p_id):
+    for i in PRISONERS_LIST.get("prisoners"):
+        if int(i.get("id")) == p_id:
+            i['status'] = 'free'
+            print('new list', PRISONERS_LIST)
 
 
 PRISONERS_LIST = load_from_file()  # текущие заключенные
