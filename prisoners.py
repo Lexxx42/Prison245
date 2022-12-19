@@ -69,6 +69,7 @@ def free_prisoner(p_id):
     for i in PRISONERS_LIST.get("prisoners"):
         if int(i.get("id")) == p_id:
             i['status'] = 'free'
+            print(f"Prisoner with id = {p_id} is free now")
             logging.info(f"prisoner with id = {p_id} is free now")
 
 

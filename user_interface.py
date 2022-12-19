@@ -2,8 +2,8 @@
 import sys
 from exceptions import *
 from logger import logging
-from prisoners import PRISONERS_LIST, set_prisoner_id, get_current_prisoner_block, free_prisoner
-from employees import EMPLOYEES_LIST, set_employee_id, free_employee, employee_update
+from prisoners import PRISONERS_LIST, set_prisoner_id, get_current_prisoner_block, free_prisoner, print_prisoners
+from employees import EMPLOYEES_LIST, set_employee_id, free_employee, employee_update, print_employees
 
 
 def main_menu() -> None | tuple[int, int]:
@@ -83,7 +83,7 @@ def add_new_prisoner_ui(type_of_operation):
     reason = validation_reason()
     prisoner_status = "in jail"
     return (prisoner_id, prisoner_name, prisoner_second_name,
-          area_name, area_cell, reason, prisoner_status)
+            area_name, area_cell, reason, prisoner_status)
 
 
 def add_new_employee_ui(type_of_operation):
@@ -119,7 +119,7 @@ def change_employee():
 3 - contacts home phone
 """)
     change_mode = validation_change('employee')
-    print_list_of_employees()
+    print_employees('console')
     if change_mode == 1:
         e_list_ids = choose_id_for_edit('employee')
         id_for_edit = validation_id_for_edit(e_list_ids)
@@ -146,7 +146,7 @@ def change_prisoner():
 2 - area_cell
 """)
     change_mode = validation_change('prisoner')
-    print_list_of_prisoners()
+    print_prisoners('console')
     if change_mode == 1:
         p_list_ids = choose_id_for_edit('prisoner')
         id_for_edit = validation_id_for_edit(p_list_ids)
@@ -169,20 +169,6 @@ def change_prisoner():
         current_block = get_current_prisoner_block(id_for_edit)
         new_cell = validation_area_cell(current_block)
         return id_for_edit, new_cell
-
-
-def print_list_of_prisoners():
-    print("prisoners list")
-    for i in PRISONERS_LIST.get("prisoners"):
-        print(i)
-    print()
-
-
-def print_list_of_employees():
-    print("employees list")
-    for i in EMPLOYEES_LIST.get("employees"):
-        print(i)
-    print()
 
 
 def choose_id_for_edit(emp_or_pri) -> str:

@@ -41,6 +41,7 @@ def free_employee(e_id):
     for i in EMPLOYEES_LIST.get("employees"):
         if int(i.get("id")) == e_id:
             i['status'] = 'fired'
+            print(f"Employee with id = {e_id} is fired now")
             logging.info(f"employee with id = {e_id} is fired now")
 
 
