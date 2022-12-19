@@ -248,7 +248,7 @@ def validation_id_for_edit(available_ids):
     id_for_check = ''
     while True:
         try:
-            id_for_check = int(input("Enter id for check: "))
+            id_for_check = int(input("Enter available id: "))
         except ValueError:
             print(MUST_BE_INTEGER)
             logging.exception(MUST_BE_INTEGER)

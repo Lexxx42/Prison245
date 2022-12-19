@@ -39,6 +39,18 @@ def employee_update(emp_id, type_of_upd, new_value):
                 salary = i.get("salary")
                 salary['amount'] = new_value
                 print('new list', EMPLOYEES_LIST)
+    elif type_of_upd == 'mobile_phone':
+        for i in EMPLOYEES_LIST.get("employees"):
+            if int(i.get("id")) == emp_id:
+                contacts = i.get("contacts")
+                contacts['mobile_personal'] = new_value
+                print('new list', EMPLOYEES_LIST)
+    elif type_of_upd == 'home_phone':
+        for i in EMPLOYEES_LIST.get("employees"):
+            if int(i.get("id")) == emp_id:
+                contacts = i.get("contacts")
+                contacts['home_phone'] = new_value
+                print('new list', EMPLOYEES_LIST)
 
 
 EMPLOYEES_LIST = load_from_file()  # текущие работники

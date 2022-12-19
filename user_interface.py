@@ -125,7 +125,19 @@ def change_employee():
         id_for_edit = validation_id_for_edit(e_list_ids)
         print("id_for_edit", id_for_edit)
         new_salary_amount = validation_salary_amount()
-        employee_update(id_for_edit,'salary',new_salary_amount)
+        employee_update(id_for_edit, 'salary', new_salary_amount)
+    elif change_mode == 2:
+        e_list_ids = choose_id_for_edit('employee')
+        id_for_edit = validation_id_for_edit(e_list_ids)
+        print("id_for_edit", id_for_edit)
+        new_contacts_mobile_phone = validation_mobile_personal()
+        employee_update(id_for_edit, 'mobile_phone', new_contacts_mobile_phone)
+    elif change_mode == 3:
+        e_list_ids = choose_id_for_edit('employee')
+        id_for_edit = validation_id_for_edit(e_list_ids)
+        print("id_for_edit", id_for_edit)
+        new_contacts_home_phone = validation_home_phone()
+        employee_update(id_for_edit, 'home_phone', new_contacts_home_phone)
 
 def change_prisoner():
     print("""Which field do you want to edit?
