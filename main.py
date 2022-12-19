@@ -54,7 +54,7 @@ def operations(t_opt, opt):
             print('Печать в консоль списка работников')
         case 2, 2:
             print('Печать в файл списка текущих работников')
-            write_file_employees()
+            write_file_employees(print_employees('file'))
         case 2, 3:
             new_employee_info = add_new_employee_ui(t_opt)
             add_new_employee(new_employee_info)

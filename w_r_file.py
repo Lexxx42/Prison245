@@ -5,11 +5,9 @@ from logger import logging
 
 def write_file_prisoners(data_for_write):
     with open('prisoners.txt', 'w') as prisoners_data:
-        print('вывод словаря PRISONERS_LIST удобным видом в txt')
-    # print(PRISONERS_LIST)
+        prisoners_data.write(data_for_write)
 
 
-def write_file_employees():
+def write_file_employees(data_for_write):
     with open('employees.txt', 'w') as employees_data:
-        print('вывод словаря EMPLOYEES_LIST удобным видом в txt')
-    # print(EMPLOYEES_LIST)
+        employees_data.write(data_for_write)
