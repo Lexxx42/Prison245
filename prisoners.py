@@ -3,12 +3,18 @@ import json
 from random import randint
 
 
-def print_prisoners():
+def print_prisoners(type_of_print):
     useful = ''
-    for i in range(len(PRISONERS_LIST.get("prisoners"))):
-        useful += "id : " + PRISONERS_LIST.get("prisoners")[i]["id"]+'; ' + 'name : ' + PRISONERS_LIST.get(
-            "prisoners")[i]["name"]+'; '+'surname : ' + PRISONERS_LIST.get("prisoners")[i]["second_name"]+'; ' + 'block : ' + PRISONERS_LIST.get("prisoners")[i]["area"]["name"]+'; ' + 'cell : ' + PRISONERS_LIST.get("prisoners")[i]["area"]["cell"]+'; ' + 'reason : ' + PRISONERS_LIST.get("prisoners")[i]["reason"]+'; ' + 'status : ' + PRISONERS_LIST.get("prisoners")[i]["status"]+'; ' + '\n'
-    print(useful)
+    if type_of_print == 'console':
+        for i in range(len(PRISONERS_LIST.get("prisoners"))):
+            useful += "id : " + PRISONERS_LIST.get("prisoners")[i]["id"]+'; ' + 'name : ' + PRISONERS_LIST.get(
+                "prisoners")[i]["name"]+'; '+'surname : ' + PRISONERS_LIST.get("prisoners")[i]["second_name"]+'; ' + 'block : ' + PRISONERS_LIST.get("prisoners")[i]["area"]["name"]+'; ' + 'cell : ' + PRISONERS_LIST.get("prisoners")[i]["area"]["cell"]+'; ' + 'reason : ' + PRISONERS_LIST.get("prisoners")[i]["reason"]+'; ' + 'status : ' + PRISONERS_LIST.get("prisoners")[i]["status"]+'; ' + '\n'
+        print(useful)
+    elif type_of_print == 'file':
+        for i in range(len(PRISONERS_LIST.get("prisoners"))):
+            useful += "id : " + PRISONERS_LIST.get("prisoners")[i]["id"]+'; ' + 'name : ' + PRISONERS_LIST.get(
+                "prisoners")[i]["name"]+'; '+'surname : ' + PRISONERS_LIST.get("prisoners")[i]["second_name"]+'; ' + 'block : ' + PRISONERS_LIST.get("prisoners")[i]["area"]["name"]+'; ' + 'cell : ' + PRISONERS_LIST.get("prisoners")[i]["area"]["cell"]+'; ' + 'reason : ' + PRISONERS_LIST.get("prisoners")[i]["reason"]+'; ' + 'status : ' + PRISONERS_LIST.get("prisoners")[i]["status"]+'; ' + '\n'
+        return useful
 
 
 def set_prisoner_id():
@@ -80,3 +86,4 @@ def add_new_prisoner(tuple_prisoner_info):
 
 
 PRISONERS_LIST = load_from_file()  # текущие заключенные
+

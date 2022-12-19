@@ -34,10 +34,10 @@ def operations(t_opt, opt):
     match t_opt, opt:
         case 1, 1:
             print('Печать в консоль списка заключенных')
-            print_prisoners()
+            print_prisoners('console')
         case 1, 2:
             print('Печать в файл списка текущих заключенных')
-            write_file_prisoners()
+            write_file_prisoners(print_prisoners('file'))
         case 1, 3:
             new_prisoner_info = add_new_prisoner_ui(t_opt)
             add_new_prisoner(new_prisoner_info)
@@ -50,7 +50,7 @@ def operations(t_opt, opt):
             change_prisoner_data(id, item_for_change)
             print('Изменение данных заключенного')
         case 2, 1:
-            print_employees()
+            print_employees('console')
             print('Печать в консоль списка работников')
         case 2, 2:
             print('Печать в файл списка текущих работников')

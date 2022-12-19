@@ -3,7 +3,7 @@ from employees import EMPLOYEES_LIST
 from logger import logging
 
 
-def write_file_prisoners():
+def write_file_prisoners(data_for_write):
     with open('prisoners.txt', 'w') as prisoners_data:
         print('вывод словаря PRISONERS_LIST удобным видом в txt')
     # print(PRISONERS_LIST)
