@@ -62,4 +62,17 @@ def free_prisoner(p_id):
             print('new list', PRISONERS_LIST)
 
 
+def add_new_prisoner(tuple_prisoner_info):
+    new_prisoner = {}
+    new_prisoner["id"] = tuple_prisoner_info[0]
+    new_prisoner["name"] = tuple_prisoner_info[1]
+    new_prisoner["second_name"] = tuple_prisoner_info[2]
+    new_prisoner["area"] = {
+        "cell": tuple_prisoner_info[4], "name": tuple_prisoner_info[3]}
+    new_prisoner["reason"] = tuple_prisoner_info[5]
+    new_prisoner["status"] = tuple_prisoner_info[6]
+    PRISONERS_LIST.get("prisoners").append(new_prisoner)
+    print(PRISONERS_LIST)
+
+
 PRISONERS_LIST = load_from_file()  # текущие заключенные

@@ -82,7 +82,7 @@ def add_new_prisoner_ui(type_of_operation):
     area_cell = validation_area_cell(area_name)
     reason = validation_reason()
     prisoner_status = "in jail"
-    print(prisoner_id, prisoner_name, prisoner_second_name,
+    return (prisoner_id, prisoner_name, prisoner_second_name,
           area_name, area_cell, reason, prisoner_status)
 
 
@@ -107,9 +107,9 @@ def add_new_employee_ui(type_of_operation):
     employee_contacts_home_phone = validation_home_phone()
     employee_contacts_mobile_personal = validation_mobile_personal()
     employee_status = "working"
-    print(employee_id, employee_name, employee_second_name, employee_salary_amount, '\n',
-          employee_salary_currency, employee_type, employee_address_city, employee_address_street, '\n',
-          employee_address_building, employee_contacts_home_phone, employee_contacts_mobile_personal, employee_status)
+    return (employee_id, employee_name, employee_second_name, employee_salary_amount,
+            employee_salary_currency, employee_type, employee_address_city, employee_address_street,
+            employee_address_building, employee_contacts_home_phone, employee_contacts_mobile_personal, employee_status)
 
 
 def change_employee():
@@ -138,6 +138,7 @@ def change_employee():
         print("id_for_edit", id_for_edit)
         new_contacts_home_phone = validation_home_phone()
         employee_update(id_for_edit, 'home_phone', new_contacts_home_phone)
+
 
 def change_prisoner():
     print("""Which field do you want to edit?
