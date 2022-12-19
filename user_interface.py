@@ -117,7 +117,7 @@ def change_prisoner():
 1 - area name
 2 - area_cell
 """)
-    change_mode = validation_change_prisoner()
+    change_mode = validation_change('prisoner')
     print_list_of_prisoners()
     if change_mode == 1:
         p_list_ids = choose_id_for_edit('prisoner')
@@ -175,4 +175,9 @@ def choose_id_for_edit(emp_or_pri) -> str:
 
 
 def change_employee():
-    print('change_employee')
+    print("""Which field do you want to edit?
+1 - salary amount
+2 - contacts mobile phone
+3 - contacts home phone
+""")
+    change_mode = validation_change('employee')

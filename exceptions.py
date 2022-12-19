@@ -213,19 +213,33 @@ def validation_mobile_personal() -> str:
         return str(mobile_personal)
 
 
-def validation_change_prisoner() -> int:
+def validation_change(arg) -> int:
     """ Function for changing prisoner's data. """
     change_type = 0
-    while True:
-        try:
-            change_type = int(input("Enter change mode for prisoner: "))
-        except ValueError:
-            print(MUST_BE_INTEGER)
-            logging.exception(MUST_BE_INTEGER)
-        if change_type not in range(1, 3):
-            print(MUST_BE_VALID)
-            logging.exception(MUST_BE_VALID)
-        return change_type
+    if arg == 'prisoner':
+        while True:
+            try:
+                change_type = int(input("Enter change mode for prisoner: "))
+            except ValueError:
+                print(MUST_BE_INTEGER)
+                logging.exception(MUST_BE_INTEGER)
+            if change_type not in range(1, 3):
+                print(MUST_BE_VALID)
+                logging.exception(MUST_BE_VALID)
+                continue
+            return change_type
+    else:
+        while True:
+            try:
+                change_type = int(input("Enter change mode for employee: "))
+            except ValueError:
+                print(MUST_BE_INTEGER)
+                logging.exception(MUST_BE_INTEGER)
+            if change_type not in range(1, 4):
+                print(MUST_BE_VALID)
+                logging.exception(MUST_BE_VALID)
+                continue
+            return change_type
 
 
 def validation_id_for_edit(available_ids):
