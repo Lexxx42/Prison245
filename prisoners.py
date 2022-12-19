@@ -33,7 +33,6 @@ def get_current_prisoner_block(id_for_search) -> str:
         if int(i.get("id")) == id_for_search:
             area = i.get("area")
             found_block = area.get("name")
-            print(found_block)
             if found_block == 'Block A':
                 logging.info(f"current block = {'A'} with id = {id_for_search}")
                 return 'A'

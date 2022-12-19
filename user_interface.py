@@ -88,7 +88,6 @@ def add_new_prisoner_ui(type_of_operation):
 
 def add_new_employee_ui(type_of_operation):
     employee_id = set_employee_id()
-    print(type_of_operation)
     employee_name = validation_name(type_of_operation)
     employee_second_name = validation_surname(type_of_operation)
     employee_salary_amount = validation_salary_amount()
@@ -147,18 +146,15 @@ def change_prisoner():
     if change_mode == 1:
         p_list_ids = choose_id_for_edit('prisoner')
         id_for_edit = validation_id_for_edit(p_list_ids)
-        print("id_for_edit", id_for_edit)
         print(f"""In witch block do you want to transfer the prisoner {id_for_edit}?
 1 - Block A
 2 - Block B
 """)
         new_area_name = validation_area_name()
-        print('new_area_name', new_area_name)
         return id_for_edit, new_area_name
     elif change_mode == 2:
         p_list_ids = choose_id_for_edit('prisoner')
         id_for_edit = validation_id_for_edit(p_list_ids)
-        print("id_for_edit", id_for_edit)
         print(f"""In witch block do you want to transfer the prisoner {id_for_edit}?
 1 - Block A
 2 - Block B
