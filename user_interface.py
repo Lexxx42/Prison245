@@ -2,7 +2,7 @@
 import sys
 from exceptions import *
 from logger import logging
-from prisoners import PRISONERS_LIST, set_prisoner_id
+from prisoners import PRISONERS_LIST, set_prisoner_id, get_current_prisoner_block
 from employees import EMPLOYEES_LIST, set_employee_id
 
 
@@ -76,7 +76,8 @@ def add_new_prisoner_ui(type_of_operation):
     area_cell = validation_area_cell(area_name)
     reason = validation_reason()
     prisoner_status = "in jail"
-    print(prisoner_id, prisoner_name, prisoner_second_name, area_name, area_cell, reason, prisoner_status)
+    print(prisoner_id, prisoner_name, prisoner_second_name,
+          area_name, area_cell, reason, prisoner_status)
 
 
 def add_new_employee_ui(type_of_operation):
@@ -117,9 +118,24 @@ def change_prisoner():
         choose_id_for_edit(p_list_ids)
         id_for_edit = validation_id_for_edit(p_list_ids)
         print("id_for_edit", id_for_edit)
-        # new_area_name = validation_area_name()
+        print(f"""In witch block do you want to transfer the prisoner {id_for_edit}?
+1 - Block A
+2 - Block B
+""")
+        new_area_name = validation_area_name()
+        print('new_area_name', new_area_name)
+        return id_for_edit, new_area_name
     elif change_mode == 2:
-        area_cell = validation_area_cell(area_name)
+        p_list_ids = get_list_of_prisoners_id_for_change()
+        choose_id_for_edit(p_list_ids)
+        id_for_edit = validation_id_for_edit(p_list_ids)
+        print("id_for_edit", id_for_edit)
+        print(f"""In witch block do you want to transfer the prisoner {id_for_edit}?
+1 - Block A
+2 - Block B
+""")
+        current_block = get_current_prisoner_block(id_for_edit)
+        new_cell = validation_area_cell(current_block)
 
 
 def print_list_of_prisoners():
