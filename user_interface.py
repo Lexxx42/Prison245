@@ -98,7 +98,7 @@ def add_new_employee_ui(type_of_operation):
 2 - cook
 3 - doctor
 4 - janitor
-5 - aligator feeder
+5 - alligator feeder
 """)
     employee_type = validation_employee_type()
     employee_address_city = validation_location('city')
@@ -123,19 +123,16 @@ def change_employee():
     if change_mode == 1:
         e_list_ids = choose_id_for_edit('employee')
         id_for_edit = validation_id_for_edit(e_list_ids)
-        print("id_for_edit", id_for_edit)
         new_salary_amount = validation_salary_amount()
         employee_update(id_for_edit, 'salary', new_salary_amount)
     elif change_mode == 2:
         e_list_ids = choose_id_for_edit('employee')
         id_for_edit = validation_id_for_edit(e_list_ids)
-        print("id_for_edit", id_for_edit)
         new_contacts_mobile_phone = validation_mobile_personal()
         employee_update(id_for_edit, 'mobile_phone', new_contacts_mobile_phone)
     elif change_mode == 3:
         e_list_ids = choose_id_for_edit('employee')
         id_for_edit = validation_id_for_edit(e_list_ids)
-        print("id_for_edit", id_for_edit)
         new_contacts_home_phone = validation_home_phone()
         employee_update(id_for_edit, 'home_phone', new_contacts_home_phone)
 
