@@ -114,8 +114,7 @@ def change_prisoner():
     change_mode = validation_change_prisoner()
     print_list_of_prisoners()
     if change_mode == 1:
-        p_list_ids = get_list_of_prisoners_id_for_change()
-        choose_id_for_edit(p_list_ids)
+        p_list_ids = choose_id_for_edit()
         id_for_edit = validation_id_for_edit(p_list_ids)
         print("id_for_edit", id_for_edit)
         print(f"""In witch block do you want to transfer the prisoner {id_for_edit}?
@@ -126,8 +125,7 @@ def change_prisoner():
         print('new_area_name', new_area_name)
         return id_for_edit, new_area_name
     elif change_mode == 2:
-        p_list_ids = get_list_of_prisoners_id_for_change()
-        choose_id_for_edit(p_list_ids)
+        p_list_ids = choose_id_for_edit()
         id_for_edit = validation_id_for_edit(p_list_ids)
         print("id_for_edit", id_for_edit)
         print(f"""In witch block do you want to transfer the prisoner {id_for_edit}?
@@ -136,6 +134,7 @@ def change_prisoner():
 """)
         current_block = get_current_prisoner_block(id_for_edit)
         new_cell = validation_area_cell(current_block)
+        return id_for_edit, new_cell
 
 
 def print_list_of_prisoners():
@@ -152,15 +151,13 @@ def print_list_of_employees():
     print()
 
 
-def get_list_of_prisoners_id_for_change() -> list:
-    available_id_for_edit = []
+def choose_id_for_edit() -> str:
+    list_for_check = []
     for i in PRISONERS_LIST.get("prisoners"):
-        available_id_for_edit.append(i.get("id"))
-    return available_id_for_edit
-
-
-def choose_id_for_edit(list_for_check) -> str:
+        if i.get("status") == 'in jail':
+            list_for_check.append(i.get("id"))
     print(f'Available ids for change: {", ".join(list_for_check)}')
+    return list_for_check
 
 
 def change_employee():

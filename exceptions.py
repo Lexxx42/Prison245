@@ -24,7 +24,8 @@ def validation_mode() -> int:
                 logging.info(f'Main mode of interface = {calc_mode}')
             return calc_mode
         print("Incorrect input! Please look at the available modes.")
-        logging.exception("Incorrect input! Please look at the available modes.")
+        logging.exception(
+            "Incorrect input! Please look at the available modes.")
 
 
 def validation_operation() -> int:
@@ -41,7 +42,8 @@ def validation_operation() -> int:
             logging.info(f'operation code = {operation_type}')
             return operation_type
         print("Incorrect input! Please look at the available operation codes.")
-        logging.exception("Incorrect input! Please look at the available operation codes.")
+        logging.exception(
+            "Incorrect input! Please look at the available operation codes.")
 
 
 def validation_name(type_op) -> str:
@@ -199,7 +201,8 @@ def validation_mobile_personal() -> str:
     mobile_personal = ''
     while True:
         try:
-            mobile_personal = int(input("Enter employee's mobile personal phone: "))
+            mobile_personal = int(
+                input("Enter employee's mobile personal phone: "))
         except ValueError:
             print(MUST_BE_INTEGER)
             logging.exception(MUST_BE_INTEGER)
@@ -223,16 +226,6 @@ def validation_change_prisoner() -> int:
             print(MUST_BE_VALID)
             logging.exception(MUST_BE_VALID)
         return change_type
-
-        # else:
-        #     match change_type:
-        #         case 1:
-        #             new_area_name = validation_area_name()
-        #             return new_area_name
-        #         case 2:
-        #             current_area_name = get_current_area_name()
-        #             new_area_cell = validation_area_cell(current_area_name)
-        #             return new_area_cell
 
 
 def validation_id_for_edit(available_ids):
