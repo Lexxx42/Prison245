@@ -9,6 +9,7 @@ def print_prisoners(type_of_print):
         for i in range(len(PRISONERS_LIST.get("prisoners"))):
             useful += "id : " + PRISONERS_LIST.get("prisoners")[i]["id"]+'; ' + 'name : ' + PRISONERS_LIST.get(
                 "prisoners")[i]["name"]+'; '+'surname : ' + PRISONERS_LIST.get("prisoners")[i]["second_name"]+'; ' + 'block : ' + PRISONERS_LIST.get("prisoners")[i]["area"]["name"]+'; ' + 'cell : ' + PRISONERS_LIST.get("prisoners")[i]["area"]["cell"]+'; ' + 'reason : ' + PRISONERS_LIST.get("prisoners")[i]["reason"]+'; ' + 'status : ' + PRISONERS_LIST.get("prisoners")[i]["status"]+'; ' + '\n'
+        logging.info("data printed to console: prisoners")
         print(useful)
     elif type_of_print == 'file':
         for i in range(len(PRISONERS_LIST.get("prisoners"))):
@@ -22,7 +23,7 @@ def set_prisoner_id():
     for i in PRISONERS_LIST.get("prisoners"):
         if int(i.get("id")) > max_id:
             max_id = int(i.get("id"))
-    print('max pr id', max_id)
+    logging.info(f"new prisoner id = {max_id + 1}")
     return max_id + 1
 
 
@@ -34,19 +35,21 @@ def get_current_prisoner_block(id_for_search) -> str:
             found_block = area.get("name")
             print(found_block)
             if found_block == 'Block A':
+                logging.info(f"current block = {'A'} with id = {id_for_search}")
                 return 'A'
+            logging.info(f"current block = {'B'} with id = {id_for_search}")
             return 'B'
 
 
 def load_from_file():
     with open('data_prisoners.json', encoding='utf-8') as file:
         data = json.load(file)
+    logging.info("Read from file prisoners")
     return data
 
 
 def change_prisoner_data(id_prisoner, data_for_change):
     if data_for_change.isalpha():
-        print('letter')
         for i in PRISONERS_LIST.get("prisoners"):
             if int(i.get("id")) == id_prisoner:
                 area = i.get("area")
@@ -55,21 +58,18 @@ def change_prisoner_data(id_prisoner, data_for_change):
                     area['cell'] = str(randint(1, 100))
                 else:
                     area['cell'] = str(randint(101, 200))
-                print('new list', PRISONERS_LIST)
     else:
-        print('number')
         for i in PRISONERS_LIST.get("prisoners"):
             if int(i.get("id")) == id_prisoner:
                 area = i.get("area")
                 area['cell'] = data_for_change
-                print('new list', PRISONERS_LIST)
 
 
 def free_prisoner(p_id):
     for i in PRISONERS_LIST.get("prisoners"):
         if int(i.get("id")) == p_id:
             i['status'] = 'free'
-            print('new list', PRISONERS_LIST)
+            logging.info(f"prisoner with id = {p_id} is free now")
 
 
 def add_new_prisoner(tuple_prisoner_info):
@@ -82,7 +82,7 @@ def add_new_prisoner(tuple_prisoner_info):
     new_prisoner["reason"] = tuple_prisoner_info[5]
     new_prisoner["status"] = tuple_prisoner_info[6]
     PRISONERS_LIST.get("prisoners").append(new_prisoner)
-    print(PRISONERS_LIST)
+    logging.info(f"prisoner added to prison with id = {tuple_prisoner_info[0]}")
 
 
 PRISONERS_LIST = load_from_file()  # текущие заключенные

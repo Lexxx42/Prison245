@@ -13,8 +13,8 @@ def main():
     print(operation_type, operation_code)
     options(operation_type, operation_code)
     logging.info('Session finish')
-    #if operation_type != 0:
-        #main()
+    if operation_type != 0:
+        main()
 
 
 def options(type_opt, option):

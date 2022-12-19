@@ -54,9 +54,11 @@ def validation_name(type_op) -> str:
             name = input("Enter prisoner's name: ")
         else:
             name = input("Enter employee's name: ")
+            logging.info(f"employee's name = {name}")
     except ValueError:
         print(MUST_BE_STRING)
         logging.exception(MUST_BE_STRING)
+    logging.info(f"prisoner's name = {name}")
     return name
 
 
@@ -66,11 +68,12 @@ def validation_surname(type_op) -> str:
     try:
         if type_op == 1:
             surname = input("Enter prisoner's surname: ")
-        else:
-            surname = input("Enter employee's surname: ")
+        #else:
+            #surname = input("Enter employee's surname: ")
     except ValueError:
         print(MUST_BE_STRING)
         logging.exception(MUST_BE_STRING)
+    logging.info(f"employee's surname = {surname}")
     return surname
 
 
@@ -90,9 +93,11 @@ def validation_area_cell(block_name) -> str:
             continue
         if block_name == 'A' and area_cell < cells[0] or area_cell > cells[1]:
             print(f"Block A have cell number from {cells[0]} to {cells[1]}")
+            logging.exception(f"incorrect cell = {area_cell} in block {block_name}")
             continue
         if block_name == 'B' and area_cell < cells[0] or area_cell > cells[1]:
             print(f"Block B have cell number from {cells[0]} to {cells[1]}")
+            logging.exception(f"incorrect cell = {area_cell} in block {block_name}")
             continue
         logging.info(f'selected block={block_name}, cell={area_cell}')
         return str(area_cell)
@@ -112,7 +117,9 @@ def validation_area_name() -> str:
             logging.exception("Block must be available!")
         else:
             if area_name == 1:
+                logging.info(f"prisoner's block = {'A'}")
                 return 'A'
+            logging.info(f"prisoner's block = {'B'}")
             return 'B'
 
 
@@ -124,11 +131,12 @@ def validation_reason() -> str:
     except ValueError:
         print(MUST_BE_STRING)
         logging.exception(MUST_BE_STRING)
+    logging.info(f"prisoner's reason for imprisonment = {p_reason}")
     return p_reason
 
 
 def validation_salary_amount() -> int:
-    """ Function for check input for prisoner's imprisonment reason. """
+    """ Function for check input for employee's salary amount. """
     salary_amount = 0
     max_salary_amount = 200000
     while True:
@@ -140,6 +148,7 @@ def validation_salary_amount() -> int:
         if salary_amount > max_salary_amount:
             print("We can't afford this much!")
             logging.exception("We can't afford this much!")
+        logging.info(f"employee's salary amount = {salary_amount}")
         return salary_amount
 
 
@@ -158,15 +167,20 @@ def validation_employee_type() -> str:
         else:
             match employee_type:
                 case 1:
+                    logging.info(f"employee's job = {'guard'}")
                     return 'guard'
                 case 2:
+                    logging.info(f"employee's job = {'cook'}")
                     return 'cook'
                 case 3:
+                    logging.info(f"employee's job = {'doctor'}")
                     return 'doctor'
                 case 4:
+                    logging.info(f"employee's job = {'janitor'}")
                     return 'janitor'
                 case 5:
-                    return 'aligator feeder'
+                    logging.info(f"employee's job = {'alligator feeder'}")
+                    return 'alligator feeder'
 
 
 def validation_location(location) -> str:
@@ -177,6 +191,7 @@ def validation_location(location) -> str:
     except ValueError:
         print(MUST_BE_STRING)
         logging.exception(MUST_BE_STRING)
+    logging.info(f"employee's location = {check_location}")
     return check_location
 
 
@@ -193,6 +208,7 @@ def validation_home_phone() -> str:
             print(MUST_BE_POSITIVE)
             logging.exception(MUST_BE_POSITIVE)
             continue
+        logging.info(f"employee's home phone = {str(home_phone)}")
         return str(home_phone)
 
 
@@ -210,6 +226,7 @@ def validation_mobile_personal() -> str:
             print(MUST_BE_POSITIVE)
             logging.exception(MUST_BE_POSITIVE)
             continue
+        logging.info(f"employee's mobile personal phone = {str(mobile_personal)}")
         return str(mobile_personal)
 
 
