@@ -3,7 +3,7 @@ import sys
 from exceptions import *
 from logger import logging
 from prisoners import PRISONERS_LIST, set_prisoner_id, get_current_prisoner_block, free_prisoner
-from employees import EMPLOYEES_LIST, set_employee_id
+from employees import EMPLOYEES_LIST, set_employee_id, free_employee
 
 
 def main_menu() -> None | tuple[int, int]:
@@ -56,7 +56,7 @@ def free_prisoner_ui():
     print("Which prisoner do you want to free? ")
     # цикл вывода заключенных из PRISONERS_LIST
     # проверка значений
-    available_prisoners = choose_id_for_edit()
+    available_prisoners = choose_id_for_edit('prisoner')
     id_for_free = validation_id_for_edit(available_prisoners)
     free_prisoner(id_for_free)
 
@@ -65,6 +65,9 @@ def fire_an_employee_ui():
     print("Which employee do you want to fire? ")
     # цикл вывода работников из EMPLOYEES_LIST
     # проверка значений
+    available_employees = choose_id_for_edit('employee')
+    id_for_free = validation_id_for_edit(available_employees)
+    free_employee(id_for_free)
 
 
 def add_new_prisoner_ui(type_of_operation):
@@ -117,7 +120,7 @@ def change_prisoner():
     change_mode = validation_change_prisoner()
     print_list_of_prisoners()
     if change_mode == 1:
-        p_list_ids = choose_id_for_edit()
+        p_list_ids = choose_id_for_edit('prisoner')
         id_for_edit = validation_id_for_edit(p_list_ids)
         print("id_for_edit", id_for_edit)
         print(f"""In witch block do you want to transfer the prisoner {id_for_edit}?
@@ -128,7 +131,7 @@ def change_prisoner():
         print('new_area_name', new_area_name)
         return id_for_edit, new_area_name
     elif change_mode == 2:
-        p_list_ids = choose_id_for_edit()
+        p_list_ids = choose_id_for_edit('prisoner')
         id_for_edit = validation_id_for_edit(p_list_ids)
         print("id_for_edit", id_for_edit)
         print(f"""In witch block do you want to transfer the prisoner {id_for_edit}?
@@ -154,13 +157,21 @@ def print_list_of_employees():
     print()
 
 
-def choose_id_for_edit() -> str:
-    list_for_check = []
-    for i in PRISONERS_LIST.get("prisoners"):
-        if i.get("status") == 'in jail':
-            list_for_check.append(i.get("id"))
-    print(f'Available ids: {", ".join(list_for_check)}')
-    return list_for_check
+def choose_id_for_edit(emp_or_pri) -> str:
+    if emp_or_pri == 'prisoner':
+        list_for_check = []
+        for i in PRISONERS_LIST.get("prisoners"):
+            if i.get("status") == 'in jail':
+                list_for_check.append(i.get("id"))
+        print(f'Available ids: {", ".join(list_for_check)}')
+        return list_for_check
+    else:
+        list_for_check = []
+        for i in EMPLOYEES_LIST.get("employees"):
+            if i.get("status") == 'working':
+                list_for_check.append(i.get("id"))
+        print(f'Available ids: {", ".join(list_for_check)}')
+        return list_for_check
 
 
 def change_employee():

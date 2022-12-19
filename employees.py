@@ -25,4 +25,11 @@ def load_from_file():
     return data
 
 
+def free_employee(e_id):
+    for i in EMPLOYEES_LIST.get("employees"):
+        if int(i.get("id")) == e_id:
+            i['status'] = 'fired'
+            print('new list', EMPLOYEES_LIST)
+
+
 EMPLOYEES_LIST = load_from_file()  # текущие работники
