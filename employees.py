@@ -32,4 +32,13 @@ def free_employee(e_id):
             print('new list', EMPLOYEES_LIST)
 
 
+def employee_update(emp_id, type_of_upd, new_value):
+    if type_of_upd == 'salary':
+        for i in EMPLOYEES_LIST.get("employees"):
+            if int(i.get("id")) == emp_id:
+                salary = i.get("salary")
+                salary['amount'] = new_value
+                print('new list', EMPLOYEES_LIST)
+
+
 EMPLOYEES_LIST = load_from_file()  # текущие работники

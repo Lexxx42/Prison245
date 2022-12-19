@@ -3,7 +3,7 @@ import sys
 from exceptions import *
 from logger import logging
 from prisoners import PRISONERS_LIST, set_prisoner_id, get_current_prisoner_block, free_prisoner
-from employees import EMPLOYEES_LIST, set_employee_id, free_employee
+from employees import EMPLOYEES_LIST, set_employee_id, free_employee, employee_update
 
 
 def main_menu() -> None | tuple[int, int]:
@@ -112,6 +112,21 @@ def add_new_employee_ui(type_of_operation):
           employee_address_building, employee_contacts_home_phone, employee_contacts_mobile_personal, employee_status)
 
 
+def change_employee():
+    print("""Which field do you want to edit?
+1 - salary amount
+2 - contacts mobile phone
+3 - contacts home phone
+""")
+    change_mode = validation_change('employee')
+    print_list_of_employees()
+    if change_mode == 1:
+        e_list_ids = choose_id_for_edit('employee')
+        id_for_edit = validation_id_for_edit(e_list_ids)
+        print("id_for_edit", id_for_edit)
+        new_salary_amount = validation_salary_amount()
+        employee_update(id_for_edit,'salary',new_salary_amount)
+
 def change_prisoner():
     print("""Which field do you want to edit?
 1 - area name
@@ -172,12 +187,3 @@ def choose_id_for_edit(emp_or_pri) -> str:
                 list_for_check.append(i.get("id"))
         print(f'Available ids: {", ".join(list_for_check)}')
         return list_for_check
-
-
-def change_employee():
-    print("""Which field do you want to edit?
-1 - salary amount
-2 - contacts mobile phone
-3 - contacts home phone
-""")
-    change_mode = validation_change('employee')

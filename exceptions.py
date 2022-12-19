@@ -133,7 +133,7 @@ def validation_salary_amount() -> int:
     max_salary_amount = 200000
     while True:
         try:
-            salary_amount = int(input("How much does employee costs: "))
+            salary_amount = int(input("How much does employee's work costs? "))
         except ValueError:
             print(MUST_BE_INTEGER)
             logging.exception(MUST_BE_INTEGER)
