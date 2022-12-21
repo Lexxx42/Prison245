@@ -1,0 +1,81 @@
+{
+  "employees": [
+    {
+      "id": "73894058",
+      "name": "Vasiliy",
+      "salary": {
+        "amount": 22000,
+        "currency": "RUR"
+      },
+      "type": "guard",
+      "address": {
+        "city": "Moscow",
+        "street": "st. Main",
+        "building": "23"
+      },
+      "contacts": {
+        "home_phone": "22",
+        "mobile_personal": "86901232318"
+      },
+      "status": "working"
+    },
+    {
+      "id": "123",
+      "name": "Veronika",
+      "salary": {
+        "amount": 30000,
+        "currency": "RUR"
+      },
+      "type": "cook",
+      "address": {
+        "city": "Novosibirsk",
+        "street": "Mira",
+        "building": "09"
+      },
+      "contacts": {
+        "home_phone": "43123",
+        "mobile_personal": "86911232318"
+      },
+      "status": "fired"
+    },
+    {
+      "id": "10003",
+      "name": "Maxim",
+      "salary": {
+        "amount": 210000,
+        "currency": "RUR"
+      },
+      "type": "doctor",
+      "address": {
+        "city": "Tomsk",
+        "street": "Lenina",
+        "building": "1"
+      },
+      "contacts": {
+        "home_phone": "1023",
+        "mobile_personal": "86911232311"
+      },
+      "status": "working"
+    },
+    {
+      "id": "73894059",
+      "name": "Rajeesh",
+      "second_name": "",
+      "salary": {
+        "amount": 120,
+        "currency": "RUR"
+      },
+      "type": "janitor",
+      "address": {
+        "city": "Amallahdir",
+        "street": "groove st",
+        "building": "12"
+      },
+      "contacts": {
+        "home_phone": "9041",
+        "mobile_personal": "12341"
+      },
+      "status": "working"
+    }
+  ]
+}

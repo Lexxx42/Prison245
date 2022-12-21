@@ -1,5 +1,6 @@
-from logger import logging
 import json
+from Prison245.w_r_file import update_json
+from logger import logging
 
 
 # ключи - id_работника
@@ -9,14 +10,34 @@ def print_employees(type_of_print):
     useful = ''
     if type_of_print == 'console':
         for i in range(len(EMPLOYEES_LIST.get("employees"))):
-            useful += "id : " + EMPLOYEES_LIST.get("employees")[i]["id"]+'; ' + 'name : ' + EMPLOYEES_LIST.get(
-                "employees")[i]["name"]+'; ' + 'salary amount : ' + str(EMPLOYEES_LIST.get("employees")[i]["salary"]["amount"])+'; ' + 'salary currency : ' + EMPLOYEES_LIST.get("employees")[i]["salary"]["currency"]+'; ' + 'job : ' + EMPLOYEES_LIST.get("employees")[i]["type"]+'; ' + '\n' + 'address city : ' + EMPLOYEES_LIST.get("employees")[i]["address"]["city"]+'; ' + 'address street : ' + EMPLOYEES_LIST.get("employees")[i]["address"]["street"]+'; ' + 'address building : ' + EMPLOYEES_LIST.get("employees")[i]["address"]["building"]+'; ' + 'contacts home_phone : ' + EMPLOYEES_LIST.get("employees")[i]["contacts"]["home_phone"]+'; ' + 'contacts mobile_personal : ' + EMPLOYEES_LIST.get("employees")[i]["contacts"]["mobile_personal"]+'; ' + 'status : ' + EMPLOYEES_LIST.get("employees")[i]["status"]+'; '+'\n\n'
+            useful += "id : " + EMPLOYEES_LIST.get("employees")[i]["id"] + '; ' + 'name : ' + EMPLOYEES_LIST.get(
+                "employees")[i]["name"] + '; ' + 'salary amount : ' + str(
+                EMPLOYEES_LIST.get("employees")[i]["salary"]["amount"]) + '; ' + 'salary currency : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["salary"]["currency"] + '; ' + 'job : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["type"] + '; ' + '\n' + 'address city : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["address"]["city"] + '; ' + 'address street : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["address"]["street"] + '; ' + 'address building : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["address"]["building"] + '; ' + 'contacts home_phone : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["contacts"][
+                          "home_phone"] + '; ' + 'contacts mobile_personal : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["contacts"]["mobile_personal"] + '; ' + 'status : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["status"] + '; ' + '\n\n'
         logging.info("data printed to console: employees")
         print(useful)
     elif type_of_print == 'file':
         for i in range(len(EMPLOYEES_LIST.get("employees"))):
-            useful += "id : " + EMPLOYEES_LIST.get("employees")[i]["id"]+'; ' + 'name : ' + EMPLOYEES_LIST.get(
-                "employees")[i]["name"]+'; ' + 'salary amount : ' + str(EMPLOYEES_LIST.get("employees")[i]["salary"]["amount"])+'; ' + 'salary currency : ' + EMPLOYEES_LIST.get("employees")[i]["salary"]["currency"]+'; ' + 'job : ' + EMPLOYEES_LIST.get("employees")[i]["type"]+'; ' + '\n' + 'address city : ' + EMPLOYEES_LIST.get("employees")[i]["address"]["city"]+'; ' + 'address street : ' + EMPLOYEES_LIST.get("employees")[i]["address"]["street"]+'; ' + 'address building : ' + EMPLOYEES_LIST.get("employees")[i]["address"]["building"]+'; ' + 'contacts home_phone : ' + EMPLOYEES_LIST.get("employees")[i]["contacts"]["home_phone"]+'; ' + 'contacts mobile_personal : ' + EMPLOYEES_LIST.get("employees")[i]["contacts"]["mobile_personal"]+'; ' + 'status : ' + EMPLOYEES_LIST.get("employees")[i]["status"]+'; '+'\n\n'
+            useful += "id : " + EMPLOYEES_LIST.get("employees")[i]["id"] + '; ' + 'name : ' + EMPLOYEES_LIST.get(
+                "employees")[i]["name"] + '; ' + 'salary amount : ' + str(
+                EMPLOYEES_LIST.get("employees")[i]["salary"]["amount"]) + '; ' + 'salary currency : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["salary"]["currency"] + '; ' + 'job : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["type"] + '; ' + '\n' + 'address city : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["address"]["city"] + '; ' + 'address street : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["address"]["street"] + '; ' + 'address building : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["address"]["building"] + '; ' + 'contacts home_phone : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["contacts"][
+                          "home_phone"] + '; ' + 'contacts mobile_personal : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["contacts"]["mobile_personal"] + '; ' + 'status : ' + \
+                      EMPLOYEES_LIST.get("employees")[i]["status"] + '; ' + '\n\n'
         return useful
 
 
@@ -27,7 +48,7 @@ def set_employee_id():
         if int(i.get("id")) > max_id:
             max_id = int(i.get("id"))
     logging.info(f"new employee id = {max_id + 1}")
-    return max_id + 1
+    return str(max_id + 1)
 
 
 def load_from_file():
@@ -42,6 +63,7 @@ def free_employee(e_id):
         if int(i.get("id")) == e_id:
             i['status'] = 'fired'
             print(f"Employee with id = {e_id} is fired now")
+            update_json("employees", EMPLOYEES_LIST)
             logging.info(f"employee with id = {e_id} is fired now")
 
 
@@ -51,18 +73,21 @@ def employee_update(emp_id, type_of_upd, new_value):
             if int(i.get("id")) == emp_id:
                 salary = i.get("salary")
                 salary['amount'] = new_value
+                update_json("employees", EMPLOYEES_LIST)
                 logging.info(f"employee_update: salary amount = {new_value}")
     elif type_of_upd == 'mobile_phone':
         for i in EMPLOYEES_LIST.get("employees"):
             if int(i.get("id")) == emp_id:
                 contacts = i.get("contacts")
                 contacts['mobile_personal'] = new_value
+                update_json("employees", EMPLOYEES_LIST)
                 logging.info(f"employee_update: contacts mobile_personal = {new_value}")
     elif type_of_upd == 'home_phone':
         for i in EMPLOYEES_LIST.get("employees"):
             if int(i.get("id")) == emp_id:
                 contacts = i.get("contacts")
                 contacts['home_phone'] = new_value
+                update_json("employees", EMPLOYEES_LIST)
                 logging.info(f"employee_update: contacts home_phone = {new_value}")
 
 
@@ -80,6 +105,7 @@ def add_new_employee(tuple_employee_info):
         "home_phone": tuple_employee_info[9], "mobile_personal": tuple_employee_info[10]}
     new_employee["status"] = tuple_employee_info[11]
     EMPLOYEES_LIST.get("employees").append(new_employee)
+    update_json("employees", EMPLOYEES_LIST)
     logging.info(f"employee added to stuff with id = {tuple_employee_info[0]}")
 
 

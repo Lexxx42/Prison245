@@ -10,7 +10,7 @@ from w_r_file import write_file_employees
 def main():
     logging.info('Start program.')
     operation_type, operation_code = main_menu()
-    print(operation_type, operation_code)
+    logging.info(f'operation chosen = {operation_type}, operation code = {operation_code}')
     options(operation_type, operation_code)
     logging.info('Session finish')
     if operation_type != 0:
@@ -42,8 +42,8 @@ def operations(t_opt, opt):
         case 1, 4:
             free_prisoner_ui()
         case 1, 5:
-            id, item_for_change = change_prisoner()
-            change_prisoner_data(id, item_for_change)
+            id_prisoner, item_for_change = change_prisoner()
+            change_prisoner_data(id_prisoner, item_for_change)
         case 2, 1:
             print_employees('console')
         case 2, 2:
