@@ -61,7 +61,7 @@ def change_prisoner_data(id_prisoner, data_for_change):
             if int(i.get("id")) == id_prisoner:
                 area = i.get("area")
                 area['name'] = data_for_change
-                if data_for_change == 'A':
+                if data_for_change == 'Block A':
                     area['cell'] = str(randint(1, 100))
                 else:
                     area['cell'] = str(randint(101, 200))

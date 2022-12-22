@@ -79,7 +79,6 @@ def validation_surname(type_op) -> str:
 
 def validation_area_cell(block_name) -> str:
     """ Function for check input for prisoner's cell number. """
-    area_cell = ''
     if block_name == 'A':
         cells = [1, 100]
     else:
@@ -118,9 +117,9 @@ def validation_area_name() -> str:
         else:
             if area_name == 1:
                 logging.info(f"prisoner's block = {'A'}")
-                return 'A'
+                return 'Block A'
             logging.info(f"prisoner's block = {'B'}")
-            return 'B'
+            return 'Block B'
 
 
 def validation_reason() -> str:

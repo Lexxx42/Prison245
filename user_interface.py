@@ -1,7 +1,6 @@
 """ This file is for user interface. Developed by Alexander Konukhov. """
 import sys
 from exceptions import *
-from logger import logging
 from prisoners import PRISONERS_LIST, set_prisoner_id, get_current_prisoner_block, free_prisoner, print_prisoners
 from employees import EMPLOYEES_LIST, set_employee_id, free_employee, employee_update, print_employees
 
@@ -155,27 +154,25 @@ def change_prisoner():
     elif change_mode == 2:
         p_list_ids = choose_id_for_edit('prisoner')
         id_for_edit = validation_id_for_edit(p_list_ids)
-        print(f"""In witch block do you want to transfer the prisoner {id_for_edit}?
-1 - Block A
-2 - Block B
+        print("""Available cells in blocks:
+Block A: [1, 100]
+Block B: [101, 200]
 """)
         current_block = get_current_prisoner_block(id_for_edit)
         new_cell = validation_area_cell(current_block)
         return id_for_edit, new_cell
 
 
-def choose_id_for_edit(emp_or_pri) -> str:
+def choose_id_for_edit(emp_or_pri) -> list:
+    list_for_check = []
     if emp_or_pri == 'prisoner':
-        list_for_check = []
         for i in PRISONERS_LIST.get("prisoners"):
             if i.get("status") == 'in jail':
                 list_for_check.append(i.get("id"))
         print(f'Available ids: {", ".join(list_for_check)}')
         return list_for_check
-    else:
-        list_for_check = []
-        for i in EMPLOYEES_LIST.get("employees"):
-            if i.get("status") == 'working':
-                list_for_check.append(i.get("id"))
-        print(f'Available ids: {", ".join(list_for_check)}')
-        return list_for_check
+    for i in EMPLOYEES_LIST.get("employees"):
+        if i.get("status") == 'working':
+            list_for_check.append(i.get("id"))
+    print(f'Available ids: {", ".join(list_for_check)}')
+    return list_for_check
