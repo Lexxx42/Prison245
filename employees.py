@@ -1,5 +1,5 @@
 import json
-from Prison245.w_r_file import update_json
+from w_r_file import update_json
 from logger import logging
 
 
