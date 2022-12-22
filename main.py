@@ -5,7 +5,8 @@ from prisoners import print_prisoners, change_prisoner_data, add_new_prisoner
 from employees import print_employees, add_new_employee
 from w_r_file import write_file_prisoners
 from w_r_file import write_file_employees
-
+from add_data import adding_prisoner
+from add_data import adding_empl
 
 def main():
     logging.info('Start program.')
@@ -38,7 +39,8 @@ def operations(t_opt, opt):
             write_file_prisoners(print_prisoners('file'))
         case 1, 3:
             new_prisoner_info = add_new_prisoner_ui(t_opt)
-            add_new_prisoner(new_prisoner_info)
+            # add_new_prisoner(new_prisoner_info)
+            adding_prisoner(new_prisoner_info)
         case 1, 4:
             free_prisoner_ui()
         case 1, 5:
@@ -50,7 +52,8 @@ def operations(t_opt, opt):
             write_file_employees(print_employees('file'))
         case 2, 3:
             new_employee_info = add_new_employee_ui(t_opt)
-            add_new_employee(new_employee_info)
+            # add_new_employee(new_employee_info)
+            adding_empl(new_employee_info)
         case 2, 4:
             fire_an_employee_ui()
         case 2, 5:
