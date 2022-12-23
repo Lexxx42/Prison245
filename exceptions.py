@@ -90,11 +90,11 @@ def validation_area_cell(block_name) -> str:
             print(MUST_BE_INTEGER)
             logging.exception(MUST_BE_INTEGER)
             continue
-        if block_name == 'A' and area_cell < cells[0] or area_cell > cells[1]:
+        if block_name == 'Block A' and area_cell < cells[0] or area_cell > cells[1]:
             print(f"Block A have cell number from {cells[0]} to {cells[1]}")
             logging.exception(f"incorrect cell = {area_cell} in block {block_name}")
             continue
-        if block_name == 'B' and area_cell < cells[0] or area_cell > cells[1]:
+        if block_name == 'Block B' and area_cell < cells[0] or area_cell > cells[1]:
             print(f"Block B have cell number from {cells[0]} to {cells[1]}")
             logging.exception(f"incorrect cell = {area_cell} in block {block_name}")
             continue
@@ -140,15 +140,15 @@ def validation_salary_amount() -> int:
     max_salary_amount = 200000
     while True:
         try:
-            salary_amount = int(input("How much does employee's work costs? "))
+            salary_amount = int(input("How much does employee's work costs?"))
+            logging.info(f"employee's salary amount = {salary_amount}")
+            return salary_amount
         except ValueError:
             print(MUST_BE_INTEGER)
             logging.exception(MUST_BE_INTEGER)
         if salary_amount > max_salary_amount:
             print("We can't afford this much!")
             logging.exception("We can't afford this much!")
-        logging.info(f"employee's salary amount = {salary_amount}")
-        return salary_amount
 
 
 def validation_employee_type() -> str:

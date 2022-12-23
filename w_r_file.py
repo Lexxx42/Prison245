@@ -17,8 +17,8 @@ def write_file_employees(data_for_write):
 def update_json(type_of_update, data):
     match type_of_update:
         case "prisoners":
-            with open('data_prisoners1.json', 'w', encoding='utf-8') as file_json:
+            with open('data_prisoners.json', 'w', encoding='utf-8') as file_json:
                 json.dump(data, file_json, ensure_ascii=False)
         case "employees":
-            with open('data_employees2.json', 'w', encoding='utf-8') as file_json:
+            with open('data_employees.json', 'w', encoding='utf-8') as file_json:
                 json.dump(data, file_json, ensure_ascii=False)
