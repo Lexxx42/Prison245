@@ -79,7 +79,7 @@ def validation_surname(type_op) -> str:
 
 def validation_area_cell(block_name) -> str:
     """ Function for check input for prisoner's cell number. """
-    if block_name == 'A':
+    if block_name == 'Block A':
         cells = [1, 100]
     else:
         cells = [101, 200]
@@ -140,7 +140,7 @@ def validation_salary_amount() -> int:
     max_salary_amount = 200000
     while True:
         try:
-            salary_amount = int(input("How much does employee's work costs?"))
+            salary_amount = int(input("How much does employee's work costs? "))
             logging.info(f"employee's salary amount = {salary_amount}")
             return salary_amount
         except ValueError:
