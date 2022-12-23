@@ -4,7 +4,7 @@ import tkinter.filedialog as fd
 def pechat_v_file_prisoners(prisoners: dict):
     # new_file = fd.asksaveasfilename(title="Сохранить файл c преступниками",
     # defaultextension=".txt", filetypes=(("txt файл", "*.txt"),))
-    file_stream = open('prisoners.txt', 'w')
+    file_stream = open('prisoners.txt', 'w', encoding='utf-8')
     mass_emp = prisoners['prisoners']
     iter_1 = int(1)
     for element in mass_emp:
@@ -20,8 +20,8 @@ def pechat_v_file_prisoners(prisoners: dict):
 
 def pechat_v_file_employees(employees: dict):
     # new_file = fd.asksaveasfilename(title="Сохранить файл с работниками",
-    #                                defaultextension=".txt", filetypes=(("txt файл", "*.txt"),))
-    file_stream = open('employees.txt', 'w')
+    #                                 defaultextension=".txt", filetypes=(("txt файл", "*.txt"),))
+    file_stream = open('employees.txt', 'w', encoding='utf-8')
     mass_emp = employees['employees']
     iter_1 = int(1)
     for element in mass_emp:
