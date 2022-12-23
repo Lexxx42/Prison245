@@ -1,5 +1,5 @@
 import json
-from Prison245.w_r_file import update_json
+from w_r_file import update_json
 from logger import logging
 from random import randint
 
@@ -43,9 +43,9 @@ def get_current_prisoner_block(id_for_search) -> str:
             found_block = area.get("name")
             if found_block == 'Block A':
                 logging.info(f"current block = {'A'} with id = {id_for_search}")
-                return 'A'
+                return 'Block A'
             logging.info(f"current block = {'B'} with id = {id_for_search}")
-            return 'B'
+            return 'Block B'
 
 
 def load_from_file():
@@ -70,7 +70,7 @@ def change_prisoner_data(id_prisoner, data_for_change):
         for i in PRISONERS_LIST.get("prisoners"):
             if int(i.get("id")) == id_prisoner:
                 area = i.get("area")
-                area['cell'] = data_for_change
+                area['name'] = data_for_change
     update_json("prisoners", PRISONERS_LIST)
 
 
@@ -78,7 +78,7 @@ def free_prisoner(p_id):
     for i in PRISONERS_LIST.get("prisoners", PRISONERS_LIST):
         if int(i.get("id")) == p_id:
             i['status'] = 'free'
-            update_json("prisoners")
+            update_json("prisoners", PRISONERS_LIST)
             print(f"Prisoner with id = {p_id} is free now")
             logging.info(f"prisoner with id = {p_id} is free now")
 
