@@ -3,8 +3,7 @@ from user_interface import main_menu, free_prisoner_ui, fire_an_employee_ui, add
 from logger import logging
 from prisoners import print_prisoners, change_prisoner_data, add_new_prisoner
 from employees import print_employees, add_new_employee
-from w_r_file import write_file_prisoners
-from w_r_file import write_file_employees
+
 
 
 def main():
