@@ -3,8 +3,7 @@ from user_interface import main_menu, free_prisoner_ui, fire_an_employee_ui, add
 from logger import logging
 from prisoners import print_prisoners, change_prisoner_data, add_new_prisoner
 from employees import print_employees, add_new_employee
-from w_r_file import write_file_prisoners
-from w_r_file import write_file_employees
+
 
 
 def main():
@@ -35,7 +34,7 @@ def operations(t_opt, opt):
         case 1, 1:
             print_prisoners('console')
         case 1, 2:
-            write_file_prisoners(print_prisoners('file'))
+            print_prisoners('file')
         case 1, 3:
             new_prisoner_info = add_new_prisoner_ui(t_opt)
             add_new_prisoner(new_prisoner_info)
@@ -47,7 +46,7 @@ def operations(t_opt, opt):
         case 2, 1:
             print_employees('console')
         case 2, 2:
-            write_file_employees(print_employees('file'))
+            print_employees('file')
         case 2, 3:
             new_employee_info = add_new_employee_ui(t_opt)
             add_new_employee(new_employee_info)
