@@ -77,6 +77,16 @@ def free_prisoner(p_id):
             logging.info(f"prisoner with id = {p_id} is free now")
 
 
+def delete_pris(p_list: dict, id_pris: int):
+    new_spis = p_list
+    for i in range(len(new_spis.get("prisoners"))):
+        if int(new_spis.get("prisoners")[i]["id"]) == id_pris:
+            new_spis["prisoners"][i]["status"] = p_list["prisoners"][i]["status"].replace("in jail", "free")
+    update_json("prisoners", PRISONERS_LIST)
+    print(f"Prisoner with id = {id_pris} is free now")
+    logging.info(f"prisoner with id = {id_pris} is free now")
+
+
 def add_new_prisoner(tuple_prisoner_info):
     new_prisoner = {}
     new_prisoner["id"] = tuple_prisoner_info[0]
