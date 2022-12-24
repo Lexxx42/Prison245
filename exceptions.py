@@ -58,6 +58,8 @@ def validation_name(type_op) -> str:
     except ValueError:
         print(MUST_BE_STRING)
         logging.exception(MUST_BE_STRING)
+    if name == '':
+        name = "John Doe / Jane Doe"
     logging.info(f"prisoner's name = {name}")
     return name
 
@@ -68,8 +70,8 @@ def validation_surname(type_op) -> str:
     try:
         if type_op == 1:
             surname = input("Enter prisoner's surname: ")
-        #else:
-            #surname = input("Enter employee's surname: ")
+        # else:
+        # surname = input("Enter employee's surname: ")
     except ValueError:
         print(MUST_BE_STRING)
         logging.exception(MUST_BE_STRING)
