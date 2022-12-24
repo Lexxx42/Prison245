@@ -55,6 +55,16 @@ def free_employee(e_id):
             logging.info(f"employee with id = {e_id} is fired now")
 
 
+def delete_employ(e_list: dict, id_empl: int):
+    new_spis = e_list
+    for i in range(len(new_spis.get("employees"))):
+        if int(new_spis.get("employees")[i]["id"]) == id_empl:
+            new_spis["employees"][i]["status"] = e_list["employees"][i]["status"].replace("working", "fired")
+    print(f"Employee with id = {id_empl} is fired now")
+    update_json("employees", EMPLOYEES_LIST)
+    logging.info(f"employee with id = {id_empl} is fired now")
+
+
 def employee_update(emp_id, type_of_upd, new_value):
     if type_of_upd == 'salary':
         for i in EMPLOYEES_LIST.get("employees"):

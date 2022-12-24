@@ -1,8 +1,8 @@
 """ This file is for user interface. Developed by Alexander Konukhov. """
 import sys
 from exceptions import *
-from prisoners import PRISONERS_LIST, set_prisoner_id, get_current_prisoner_block, free_prisoner, print_prisoners
-from employees import EMPLOYEES_LIST, set_employee_id, free_employee, employee_update, print_employees
+from prisoners import PRISONERS_LIST, set_prisoner_id, get_current_prisoner_block, delete_pris, print_prisoners
+from employees import EMPLOYEES_LIST, set_employee_id, delete_employ, employee_update, print_employees
 
 
 def main_menu() -> None | tuple[int, int]:
@@ -57,7 +57,7 @@ def free_prisoner_ui():
     # проверка значений
     available_prisoners = choose_id_for_edit('prisoner')
     id_for_free = validation_id_for_edit(available_prisoners)
-    free_prisoner(id_for_free)
+    delete_pris(id_for_free)
 
 
 def fire_an_employee_ui():
@@ -66,7 +66,7 @@ def fire_an_employee_ui():
     # проверка значений
     available_employees = choose_id_for_edit('employee')
     id_for_free = validation_id_for_edit(available_employees)
-    free_employee(id_for_free)
+    delete_employ(id_for_free)
 
 
 def add_new_prisoner_ui(type_of_operation):
