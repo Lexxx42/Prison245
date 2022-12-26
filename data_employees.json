@@ -1,1 +1,80 @@
-{"employees": [{"id": "73894058", "name": "Vasiliy", "salary": {"amount": 123, "currency": "RUR"}, "type": "guard", "address": {"city": "Moscow", "street": "st. Main", "building": "23"}, "contacts": {"home_phone": "22", "mobile_personal": "86901232318"}, "status": "working"}, {"id": "123", "name": "Veronika", "salary": {"amount": 30000, "currency": "RUR"}, "type": "cook", "address": {"city": "Novosibirsk", "street": "Mira", "building": "09"}, "contacts": {"home_phone": "43123", "mobile_personal": "86911232318"}, "status": "fired"}, {"id": "10003", "name": "Maxim", "salary": {"amount": 210000, "currency": "RUR"}, "type": "doctor", "address": {"city": "Tomsk", "street": "Lenina", "building": "1"}, "contacts": {"home_phone": "1023", "mobile_personal": "86911232311"}, "status": "working"}, {"id": "73894059", "name": "Vasiliy", "salary": {"amount": -100, "currency": "RUR"}, "type": "alligator feeder", "address": {"city": "Caraganda", "street": "Mira", "building": "666"}, "contacts": {"home_phone": "123", "mobile_personal": "7123123"}, "status": "fired"}]}
+{
+  "employees": [
+    {
+      "id": "73894058",
+      "name": "Vasiliy",
+      "salary": {
+        "amount": 123,
+        "currency": "RUR"
+      },
+      "type": "guard",
+      "address": {
+        "city": "Moscow",
+        "street": "st. Main",
+        "building": "23"
+      },
+      "contacts": {
+        "home_phone": "22",
+        "mobile_personal": "86901232318"
+      },
+      "status": "working"
+    },
+    {
+      "id": "123",
+      "name": "Veronika",
+      "salary": {
+        "amount": 30000,
+        "currency": "RUR"
+      },
+      "type": "cook",
+      "address": {
+        "city": "Novosibirsk",
+        "street": "Mira",
+        "building": "09"
+      },
+      "contacts": {
+        "home_phone": "43123",
+        "mobile_personal": "86911232318"
+      },
+      "status": "fired"
+    },
+    {
+      "id": "10003",
+      "name": "Maxim",
+      "salary": {
+        "amount": 210000,
+        "currency": "RUR"
+      },
+      "type": "doctor",
+      "address": {
+        "city": "Tomsk",
+        "street": "Lenina",
+        "building": "1"
+      },
+      "contacts": {
+        "home_phone": "1023",
+        "mobile_personal": "86911232311"
+      },
+      "status": "working"
+    },
+    {
+      "id": "73894059",
+      "name": "Vasiliy",
+      "salary": {
+        "amount": -100,
+        "currency": "RUR"
+      },
+      "type": "alligator feeder",
+      "address": {
+        "city": "Caraganda",
+        "street": "Mira",
+        "building": "666"
+      },
+      "contacts": {
+        "home_phone": "123",
+        "mobile_personal": "7123123"
+      },
+      "status": "fired"
+    }
+  ]
+}

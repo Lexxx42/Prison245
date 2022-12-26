@@ -2,29 +2,37 @@ import json
 from w_r_file import update_json
 from logger import logging
 from pechat_v_file import pechat_v_file_employees
+from prettytable import PrettyTable
 
 
 # ключи - id_работника
 # значения из README.md
 
 def print_employees(type_of_print):
-    useful = ''
     if type_of_print == 'console':
-        for i in range(len(EMPLOYEES_LIST.get("employees"))):
-            useful += "id : " + EMPLOYEES_LIST.get("employees")[i]["id"] + '; ' + 'name : ' + EMPLOYEES_LIST.get(
-                "employees")[i]["name"] + '; ' + 'salary amount : ' + str(
-                EMPLOYEES_LIST.get("employees")[i]["salary"]["amount"]) + '; ' + 'salary currency : ' + \
-                      EMPLOYEES_LIST.get("employees")[i]["salary"]["currency"] + '; ' + 'job : ' + \
-                      EMPLOYEES_LIST.get("employees")[i]["type"] + '; ' + '\n' + 'address city : ' + \
-                      EMPLOYEES_LIST.get("employees")[i]["address"]["city"] + '; ' + 'address street : ' + \
-                      EMPLOYEES_LIST.get("employees")[i]["address"]["street"] + '; ' + 'address building : ' + \
-                      EMPLOYEES_LIST.get("employees")[i]["address"]["building"] + '; ' + 'contacts home_phone : ' + \
-                      EMPLOYEES_LIST.get("employees")[i]["contacts"][
-                          "home_phone"] + '; ' + 'contacts mobile_personal : ' + \
-                      EMPLOYEES_LIST.get("employees")[i]["contacts"]["mobile_personal"] + '; ' + 'status : ' + \
-                      EMPLOYEES_LIST.get("employees")[i]["status"] + '; ' + '\n\n'
+        employees_table = PrettyTable()
+        employees_table.field_names = ["id", "name", "salary_amount", "salary_currency", "job", "city", "street",
+                                       "building",
+                                       "home_phone",
+                                       "mobile_personal", "status"]
+        for employee in EMPLOYEES_LIST.get("employees"):
+            list_row = []
+            for key in employee:
+                if key == "salary":
+                    list_row.append(employee[key]['amount'])
+                    list_row.append(employee[key]['currency'])
+                elif key == "address":
+                    list_row.append(employee[key]['city'])
+                    list_row.append(employee[key]['street'])
+                    list_row.append(employee[key]['building'])
+                elif key == "contacts":
+                    list_row.append(employee[key]['home_phone'])
+                    list_row.append(employee[key]['mobile_personal'])
+                else:
+                    list_row.append(employee[key])
+            employees_table.add_row(list_row)
+        print(employees_table)
         logging.info("data printed to console: employees")
-        print(useful)
     elif type_of_print == 'file':
         pechat_v_file_employees(EMPLOYEES_LIST)
 
