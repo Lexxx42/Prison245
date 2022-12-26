@@ -3,20 +3,23 @@ from w_r_file import update_json
 from logger import logging
 from random import randint
 from pechat_v_file import pechat_v_file_prisoners
+from prettytable import PrettyTable
 
 
 def print_prisoners(type_of_print):
-    useful = ''
+    prisoners_table = PrettyTable()
     if type_of_print == 'console':
-        for i in range(len(PRISONERS_LIST.get("prisoners"))):
-            useful += "id : " + PRISONERS_LIST.get("prisoners")[i]["id"] + '; ' + 'name : ' + PRISONERS_LIST.get(
-                "prisoners")[i]["name"] + '; ' + 'surname : ' + PRISONERS_LIST.get("prisoners")[i][
-                          "second_name"] + '; ' + 'block : ' + PRISONERS_LIST.get("prisoners")[i]["area"][
-                          "name"] + '; ' + 'cell : ' + PRISONERS_LIST.get("prisoners")[i]["area"][
-                          "cell"] + '; ' + 'reason : ' + PRISONERS_LIST.get("prisoners")[i][
-                          "reason"] + '; ' + 'status : ' + PRISONERS_LIST.get("prisoners")[i]["status"] + '; ' + '\n'
-        logging.info("data printed to console: prisoners")
-        print(useful)
+        prisoners_table.field_names = ["id", "name", "surname", "block", "cell", "reason", "status"]
+        for prisoner in PRISONERS_LIST.get("prisoners"):
+            list_row = []
+            for key in prisoner:
+                if key == "area":
+                    list_row.append(prisoner[key]['name'])
+                    list_row.append(prisoner[key]['cell'])
+                else:
+                    list_row.append(prisoner[key])
+            prisoners_table.add_row(list_row)
+        print(prisoners_table)
     elif type_of_print == 'file':
         pechat_v_file_prisoners(PRISONERS_LIST)
 
