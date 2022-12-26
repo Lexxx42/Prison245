@@ -1,20 +1,10 @@
-from user_interface import main_menu, free_prisoner_ui, fire_an_employee_ui, add_new_prisoner_ui, add_new_employee_ui, \
+from user_interface import free_prisoner_ui, fire_an_employee_ui, add_new_prisoner_ui, add_new_employee_ui, \
     change_prisoner, change_employee
 from logger import logging
 from prisoners import print_prisoners, change_prisoner_data
 from employees import print_employees
 from add_data import adding_prisoner
 from add_data import adding_empl
-
-
-def main():
-    logging.info('Start program.')
-    operation_type, operation_code = main_menu()
-    logging.info(f'operation chosen = {operation_type}, operation code = {operation_code}')
-    options(operation_type, operation_code)
-    logging.info('Session finish')
-    if operation_type != 0:
-        main()
 
 
 def options(type_opt, option):
@@ -57,5 +47,4 @@ def operations(t_opt, opt):
             change_employee()
 
 
-if __name__ == '__main__':
-    main()
+
