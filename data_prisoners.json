@@ -32,6 +32,50 @@
       },
       "reason": "За длинные интервью",
       "status": "free"
+    },
+    {
+      "id": "24",
+      "name": "asd",
+      "second_name": "poi",
+      "area": {
+        "cell": "123",
+        "name": "Block B"
+      },
+      "reason": "smoking",
+      "status": "free"
+    },
+    {
+      "id": "25",
+      "name": "Fas",
+      "second_name": "rt",
+      "area": {
+        "cell": "102",
+        "name": "Block A"
+      },
+      "reason": "sadasd",
+      "status": "in jail"
+    },
+    {
+      "id": "26",
+      "name": "asd",
+      "second_name": "dsg",
+      "area": {
+        "cell": "23",
+        "name": "Block A"
+      },
+      "reason": "asd",
+      "status": "free"
+    },
+    {
+      "id": "27",
+      "name": "Rta",
+      "second_name": "NJs",
+      "area": {
+        "cell": "105",
+        "name": "Block B"
+      },
+      "reason": "asd",
+      "status": "in jail"
     }
   ]
 }

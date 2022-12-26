@@ -38,7 +38,6 @@ def operations(t_opt, opt):
             print_prisoners('file')
         case 1, 3:
             new_prisoner_info = add_new_prisoner_ui(t_opt)
-            # add_new_prisoner(new_prisoner_info)
             adding_prisoner(new_prisoner_info)
         case 1, 4:
             free_prisoner_ui()
@@ -51,7 +50,6 @@ def operations(t_opt, opt):
             print_employees('file')
         case 2, 3:
             new_employee_info = add_new_employee_ui(t_opt)
-            # add_new_employee(new_employee_info)
             adding_empl(new_employee_info)
         case 2, 4:
             fire_an_employee_ui()

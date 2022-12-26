@@ -275,3 +275,18 @@ def validation_id_for_edit(available_ids):
             logging.exception(MUST_BE_VALID)
             continue
         return id_for_check
+
+
+def validation_enter_filename() -> str:
+    """ Function for check input for filename for saving data. """
+    filename = 'default'
+    while True:
+        try:
+            filename = input("Enter name for a file to save data: ")
+        except ValueError:
+            print(MUST_BE_STRING)
+            logging.exception(MUST_BE_STRING)
+        if filename == '':
+            filename = 'default'
+        logging.info(f"filename = {filename}")
+        return filename
